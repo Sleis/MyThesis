@@ -5,16 +5,23 @@
  */
 package com.mycompany.agriculture;
 
+import com.sun.javafx.scene.control.skin.DatePickerSkin;
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
 
@@ -29,29 +36,57 @@ public class CalendarController implements Initializable {
      * Initializes the controller class.
      */
     @FXML
-    private Button buttonBack;
-
-    @FXML
     private Pane pane;
 
     @FXML
-    private void handleBack(ActionEvent event) throws IOException {
-        Stage stage;
-        Parent root;
-        stage = (Stage) buttonBack.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
-        root = loader.load();
+    private Label comment;
 
-        Scene scene = new Scene(root);
+    @FXML
+    private Label date;
+
+    @FXML
+    private Button back;
+
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+        Stage stage = (Stage)date.getScene().getWindow();
+        BorderPane root = new BorderPane();
+        Scene scene = new Scene(root, 400, 250);
+        DatePicker datePicker = new DatePicker(LocalDate.now());
+        datePicker.setOnAction(actionEvent -> {
+            HomeController.setDates(datePicker.getValue());
+            try {               
+                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
+                Parent root1 = loader.load();
+                stage.setTitle("Megjegyzések");
+                Scene scene1 = new Scene(root1);
+                stage.setScene(scene1);
+                stage.show();
+
+            } catch (IOException e) {
+                System.out.println(e);
+            }
+        });
+        DatePickerSkin datePickerSkin = new DatePickerSkin(datePicker);
+        Node popupContent = datePickerSkin.getPopupContent();
+        root.setTop(popupContent);
+
         stage.setScene(scene);
+        stage.setTitle("Calendar");
         stage.show();
+        
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
-        
+        LocalDate dates = HomeController.getDates();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy LLLL dd");
+        String formattedString = dates.format(formatter);
+        date.setText(formattedString);
+
+        comment.setText(HomeController.getComments());
+
     }
 
 }
