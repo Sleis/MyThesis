@@ -144,7 +144,7 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
-        /*if (dates.compareTo(LocalDate.now()) == 0) {
+        if (dates.compareTo(LocalDate.now()) == 0) {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.setAlwaysOnTop(true);
@@ -153,6 +153,6 @@ public class HomeController implements Initializable {
             alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea("Öntözd meg a növényeket!")));
             alert.show();
 
-        }*/
+        }
     }
 }
