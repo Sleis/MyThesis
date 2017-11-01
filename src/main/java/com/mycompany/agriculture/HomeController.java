@@ -12,8 +12,11 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.control.ScrollPane;
+import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
@@ -36,7 +39,7 @@ public class HomeController implements Initializable {
     @FXML
     private Pane pane;
 
-    private static LocalDate dates;
+    private static LocalDate dates = LocalDate.now();
 
     private static String comments = "Nincs";
 
@@ -89,7 +92,7 @@ public class HomeController implements Initializable {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 400, 250);
         DatePicker datePicker = new DatePicker(LocalDate.now());
-    
+
         DatePickerSkin datePickerSkin = new DatePickerSkin(datePicker);
         Node popupContent = datePickerSkin.getPopupContent();
         popupContent.setOnMouseClicked(actionEvent -> {
@@ -104,7 +107,6 @@ public class HomeController implements Initializable {
                             Scene scene1 = new Scene(root1);
                             stage.setScene(scene1);
                             stage.show();
-
                         } catch (IOException e) {
                             System.out.println(e);
                         }
@@ -142,5 +144,15 @@ public class HomeController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
+        /*if (dates.compareTo(LocalDate.now()) == 0) {
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
+            stage.setAlwaysOnTop(true);
+            stage.toFront(); // not sure if necessary
+            alert.setHeaderText("You have a job for today!");
+            alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea("Öntözd meg a növényeket!")));
+            alert.show();
+
+        }*/
     }
 }

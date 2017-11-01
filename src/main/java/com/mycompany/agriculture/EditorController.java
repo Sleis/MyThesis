@@ -21,6 +21,7 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Cell;
 import model.CellType;
@@ -61,18 +62,21 @@ public class EditorController implements Initializable {
     @FXML
     private void handleNew(ActionEvent event) throws IOException {
         try {
+
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/NewStage.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage1 = new Stage();
+            stage1.initModality(Modality.WINDOW_MODAL);
+            stage1.initOwner(pane.getScene().getWindow());
+            stage1.setScene(new Scene(root1));
+            stage1.show();
+
             Stage stage = (Stage) buttonBack.getScene().getWindow();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
             Parent root = loader.load();
             Scene scene = new Scene(root);
             stage.setScene(scene);
             stage.show();
-
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/NewStage.fxml"));
-            Parent root1 = (Parent) fxmlLoader.load();
-            Stage stage1 = new Stage();
-            stage1.setScene(new Scene(root1));
-            stage1.show();
 
         } catch (IOException e) {
             System.out.println(e);
@@ -185,6 +189,8 @@ public class EditorController implements Initializable {
                         Parent root = (Parent) fxmlLoader.load();
                         fxmlLoader.<InformationStageController>getController().setInfoLabel(maps.getCell()[x][y].getCelltype());
                         Stage stage = new Stage();
+                        stage.initModality(Modality.WINDOW_MODAL);
+                        stage.initOwner(pane.getScene().getWindow());
                         stage.setScene(new Scene(root));
                         stage.show();
                     } catch (IOException e1) {
