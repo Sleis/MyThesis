@@ -9,7 +9,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.Label;
+import javafx.scene.layout.Region;
 import model.CellType;
 
 /**
@@ -17,7 +19,6 @@ import model.CellType;
  *
  * @author ivany
  */
-
 public class InformationStageController implements Initializable {
 
     /**
@@ -25,15 +26,16 @@ public class InformationStageController implements Initializable {
      */
     @FXML
     private Label infoLabel;
-    
-public void setInfoLabel(CellType ct) {
+
+    public void setInfoLabel(CellType ct) {
         infoLabel.setText(ct.name());
+
     }
-    
+
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-        
-    }    
-    
+
+    }
+
 }

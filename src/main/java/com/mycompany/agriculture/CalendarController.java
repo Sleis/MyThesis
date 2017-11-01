@@ -21,6 +21,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -53,28 +54,31 @@ public class CalendarController implements Initializable {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 400, 250);
         DatePicker datePicker = new DatePicker(LocalDate.now());
-        
 
         DatePickerSkin datePickerSkin = new DatePickerSkin(datePicker);
         Node popupContent = datePickerSkin.getPopupContent();
-        
+
         popupContent.setOnMouseClicked(actionEvent -> {
             if (0 >= (LocalDate.now().compareTo(datePicker.getValue()))) {
-                HomeController.setDates(datePicker.getValue());
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
-                    Parent root1 = loader.load();
-                    stage.setTitle("Megjegyzések");
-                    Scene scene1 = new Scene(root1);
-                    stage.setScene(scene1);
-                    stage.show();
+                if (actionEvent.getButton().equals(MouseButton.PRIMARY)) {
+                    if (actionEvent.getClickCount() == 2) {
+                        HomeController.setDates(datePicker.getValue());
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
+                            Parent root1 = loader.load();
+                            stage.setTitle("Megjegyzések");
+                            Scene scene1 = new Scene(root1);
+                            stage.setScene(scene1);
+                            stage.show();
 
-                } catch (IOException e) {
-                    System.out.println(e);
+                        } catch (IOException e) {
+                            System.out.println(e);
+                        }
+                    }
                 }
             }
         });
-        
+
         root.setTop(popupContent);
 
         stage.setScene(scene);

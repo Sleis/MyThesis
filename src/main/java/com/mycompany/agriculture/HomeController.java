@@ -14,6 +14,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
+import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -93,17 +94,21 @@ public class HomeController implements Initializable {
         Node popupContent = datePickerSkin.getPopupContent();
         popupContent.setOnMouseClicked(actionEvent -> {
             if (0 >= (LocalDate.now().compareTo(datePicker.getValue()))) {
-                HomeController.setDates(datePicker.getValue());
-                try {
-                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
-                    Parent root1 = loader.load();
-                    stage.setTitle("Megjegyzések");
-                    Scene scene1 = new Scene(root1);
-                    stage.setScene(scene1);
-                    stage.show();
+                if (actionEvent.getButton().equals(MouseButton.PRIMARY)) {
+                    if (actionEvent.getClickCount() == 2) {
+                        HomeController.setDates(datePicker.getValue());
+                        try {
+                            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
+                            Parent root1 = loader.load();
+                            stage.setTitle("Megjegyzések");
+                            Scene scene1 = new Scene(root1);
+                            stage.setScene(scene1);
+                            stage.show();
 
-                } catch (IOException e) {
-                    System.out.println(e);
+                        } catch (IOException e) {
+                            System.out.println(e);
+                        }
+                    }
                 }
             }
         });
