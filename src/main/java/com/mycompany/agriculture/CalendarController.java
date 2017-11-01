@@ -49,32 +49,38 @@ public class CalendarController implements Initializable {
 
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
-        Stage stage = (Stage)date.getScene().getWindow();
+        Stage stage = (Stage) date.getScene().getWindow();
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 400, 250);
         DatePicker datePicker = new DatePicker(LocalDate.now());
-        datePicker.setOnAction(actionEvent -> {
-            HomeController.setDates(datePicker.getValue());
-            try {               
-                FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
-                Parent root1 = loader.load();
-                stage.setTitle("Megjegyzések");
-                Scene scene1 = new Scene(root1);
-                stage.setScene(scene1);
-                stage.show();
+        
 
-            } catch (IOException e) {
-                System.out.println(e);
-            }
-        });
         DatePickerSkin datePickerSkin = new DatePickerSkin(datePicker);
         Node popupContent = datePickerSkin.getPopupContent();
+        
+        popupContent.setOnMouseClicked(actionEvent -> {
+            if (0 >= (LocalDate.now().compareTo(datePicker.getValue()))) {
+                HomeController.setDates(datePicker.getValue());
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
+                    Parent root1 = loader.load();
+                    stage.setTitle("Megjegyzések");
+                    Scene scene1 = new Scene(root1);
+                    stage.setScene(scene1);
+                    stage.show();
+
+                } catch (IOException e) {
+                    System.out.println(e);
+                }
+            }
+        });
+        
         root.setTop(popupContent);
 
         stage.setScene(scene);
         stage.setTitle("Calendar");
         stage.show();
-        
+
     }
 
     @Override
@@ -84,7 +90,6 @@ public class CalendarController implements Initializable {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy LLLL dd");
         String formattedString = dates.format(formatter);
         date.setText(formattedString);
-
         comment.setText(HomeController.getComments());
 
     }

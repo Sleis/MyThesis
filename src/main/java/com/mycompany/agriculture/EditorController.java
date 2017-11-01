@@ -183,6 +183,7 @@ public class EditorController implements Initializable {
                     try {
                         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/InformationStage.fxml"));
                         Parent root = (Parent) fxmlLoader.load();
+                        fxmlLoader.<InformationStageController>getController().setInfoLabel(maps.getCell()[x][y].getCelltype());
                         Stage stage = new Stage();
                         stage.setScene(new Scene(root));
                         stage.show();

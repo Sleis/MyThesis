@@ -29,6 +29,7 @@ public class InformationController implements Initializable {
     @FXML
     private Pane pane;
     
+    
     @FXML
     private void handleBack(ActionEvent event) throws IOException {
         Stage stage;
