@@ -5,18 +5,12 @@
  */
 package com.mycompany.agriculture;
 
-import static com.mycompany.agriculture.MainApp.conn;
+import static com.mycompany.agriculture.HomeController.drb;
 import com.sun.javafx.scene.control.skin.DatePickerSkin;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,7 +24,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -45,9 +38,6 @@ public class CalendarController implements Initializable {
      * Initializes the controller class.
      */
     @FXML
-    private Pane pane;
-
-    @FXML
     private Label comment;
 
     @FXML
@@ -57,10 +47,16 @@ public class CalendarController implements Initializable {
     private Label errorLabel;
 
     @FXML
+    private Label errorLabel1;
+
+    @FXML
     private Button backButton;
 
     @FXML
     private Button addButton;
+
+    @FXML
+    private Button resetButton;
 
     @FXML
     private TextArea textArea;
@@ -71,10 +67,8 @@ public class CalendarController implements Initializable {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 400, 250);
         DatePicker datePicker = new DatePicker(LocalDate.now());
-
         DatePickerSkin datePickerSkin = new DatePickerSkin(datePicker);
         Node popupContent = datePickerSkin.getPopupContent();
-
         popupContent.setOnMouseClicked(actionEvent -> {
             if (0 >= (LocalDate.now().compareTo(datePicker.getValue()))) {
                 if (actionEvent.getButton().equals(MouseButton.PRIMARY)) {
@@ -95,9 +89,7 @@ public class CalendarController implements Initializable {
                 }
             }
         });
-
         root.setTop(popupContent);
-
         stage.setScene(scene);
         stage.setTitle("Calendar");
         stage.show();
@@ -107,69 +99,47 @@ public class CalendarController implements Initializable {
     @FXML
     private void handleAdd(ActionEvent event) {
         if (textArea.getText().isEmpty()) {
-            errorLabel.setText("Írjon valami feladatot!");
-        } else if (textArea.getText().length() > 100) {
-            errorLabel.setText("Legfeljebb 100 karakter!");
-        } else {
-            try {
-                ArrayList<String> ar = new ArrayList<>();
-                String com = "";
-                Statement stmt = conn.createStatement();
-                String ins = "insert into jobs (date,job) values ('" + HomeController.getDates() + "','" + textArea.getText() + "')";
-                stmt.executeUpdate(ins);
-                ResultSet rs = stmt.executeQuery("SELECT * FROM jobs");
-                while (rs.next()) {
-                    if (rs.getString("date").equals(HomeController.getDates().toString())) {
-                        ar.add(rs.getString("job"));
-                    }
-                }
-                for (String var : ar) {
-                    com += var;
-                    com += "\r";
-                }
-                comment.setText(com);
-                textArea.clear();
+            errorLabel1.setText("Type a job!");
+            errorLabel1.setTextFill(Color.RED);
 
-            } catch (SQLException ex) {
-                Logger.getLogger(CalendarController.class.getName()).log(Level.SEVERE, null, ex);
+        } else if (textArea.getText().length() > 100) {
+            errorLabel.setText("Maximum 100 charachters!");
+            errorLabel.setTextFill(Color.RED);
+
+        } else {
+            drb.addNewJob(textArea.getText(), HomeController.getDates());
+            textArea.clear();
+            String com = "";
+            for (String var : drb.getJobs(HomeController.getDates())) {
+                com += var;
+                com += System.getProperty("line.separator");
             }
+            comment.setText(com);
 
         }
-        errorLabel.setTextFill(Color.RED);
+
+    }
+
+    @FXML
+    private void handleReset(ActionEvent event) {
+        drb.deleteJobs(HomeController.getDates());
+        comment.setText("You haven't got any jobs today.");
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle rb) {
+    public void initialize(URL url, ResourceBundle rb
+    ) {
         // TODO
-        LocalDate dates = HomeController.getDates();
-        dateLabel.setText("Dátum: " + dates);
-        boolean isThere = false;
-        ArrayList<String> ar = new ArrayList<>();
+        dateLabel.setText("Date: " + HomeController.getDates());
         String com = "";
-        Statement stmt;
-        try {
-            stmt = conn.createStatement();
-            
-            ResultSet rs = stmt.executeQuery("SELECT * FROM jobs");
-            while (rs.next()) {
-                if (rs.getString("date").equals(HomeController.getDates().toString())) {
-                    ar.add(rs.getString("job"));
-                    isThere = true;
-                }
-            }
-            for (String var : ar) {
+        if (drb.getJobs(HomeController.getDates()).isEmpty()) {
+            comment.setText("You haven't got any jobs today.");
+        } else {
+            for (String var : drb.getJobs(HomeController.getDates())) {
                 com += var;
                 com += "\r";
             }
             comment.setText(com);
-            if (!isThere) {
-                comment.setText("Mára nincs feladat.");
-            }
-
-        } catch (SQLException ex) {
-            System.out.println(ex.getSQLState());
-        }       
-
+        }
     }
-
 }

@@ -55,21 +55,19 @@ public class NewStageController implements Initializable {
 
     @FXML
     private void handleOk(ActionEvent event) throws IOException {
-        NewStageController.setHeigth(fieldHeigth.getText());
-        NewStageController.setWidth(fieldWidth.getText());
-        try{
-        int w = Integer.parseInt(width);
-        int h = Integer.parseInt(heigth);
-        
-        
-        if (heigth.equals("") || width.equals("")) {
-            labelErrorMessage.setText("Enter both values!");
-        } else if (w > 200 || h > 200) {
-            labelErrorMessage.setText("Maximum values are 200!");
-        } else {
-            ((Node) (event.getSource())).getScene().getWindow().hide();
-        }
-        }catch(NumberFormatException nfe){
+        try {
+            int w = Integer.parseInt(fieldWidth.getText());
+            int h = Integer.parseInt(fieldHeigth.getText());
+            if (heigth.equals("") || width.equals("")) {
+                labelErrorMessage.setText("Enter both values!");
+            } else if (w > 200 || h > 200) {
+                labelErrorMessage.setText("Maximum values are 200!");
+            } else {
+                NewStageController.setHeigth(fieldHeigth.getText());
+                NewStageController.setWidth(fieldWidth.getText());
+                ((Node) (event.getSource())).getScene().getWindow().hide();
+            }
+        } catch (NumberFormatException nfe) {
             labelErrorMessage.setText("Please, enter integer values!");
         }
 

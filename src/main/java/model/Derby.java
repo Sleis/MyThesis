@@ -6,6 +6,8 @@
 package model;
 
 import com.mycompany.agriculture.HomeController;
+import java.io.IOException;
+import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.Connection;
@@ -27,6 +29,7 @@ public class Derby {
 
     private static Connection connection;
     private static Statement stmt;
+    private static Path p = Paths.get(System.getProperty("user.home"), "Documents", ".Agriculture");
     private static final String host = "jdbc:derby:" + Paths.get(System.getProperty("user.home")) + "\\Documents\\.Agriculture\\Jobs;create=true";
 
     public void connectToDatabase() {
@@ -51,8 +54,23 @@ public class Derby {
         }
     }
 
+    public void createDirIfNotExist() {
+        try {
+            if (!p.toFile().exists()) {
+                p.toFile().mkdirs();
+                Files.setAttribute(p, "dos:hidden", true);
+            }
+        } catch (IOException ex) {
+            Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     public Statement getStatement() {
         return stmt;
+    }
+
+    public Connection getConnection() {
+        return connection;
     }
 
     public void deleteOldJobs(Statement stmt) {
@@ -65,25 +83,30 @@ public class Derby {
 
     public void addNewJob(String job, LocalDate date) {
         try {
-            String ins = "insert into jobs (date,job) values ('" + date + "','" + job + "')";
-            stmt.executeUpdate(ins);
+            stmt.executeUpdate("insert into jobs (date,job) values ('" + date + "','" + job + "')");
         } catch (SQLException ex) {
             Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
-    public ArrayList<String> getJob(LocalDate date) {
+    public ArrayList<String> getJobs(LocalDate date) {
         ArrayList<String> ar = new ArrayList<>();
         try {
-            ResultSet rs = stmt.executeQuery("SELECT * FROM jobs");
+            ResultSet rs = stmt.executeQuery("SELECT * FROM jobs where date = '" + date + "'");
             while (rs.next()) {
-                if (rs.getString("date").equals(HomeController.getDates().toString())) {
-                    ar.add(rs.getString("job"));
-                }
+                ar.add(rs.getString("job"));
             }
         } catch (SQLException ex) {
             Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ar;
+    }
+
+    public void deleteJobs(LocalDate date) {
+        try {
+            stmt.executeUpdate("DELETE FROM jobs WHERE date = '" + date + "'");
+        } catch (SQLException ex) {
+            Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 }

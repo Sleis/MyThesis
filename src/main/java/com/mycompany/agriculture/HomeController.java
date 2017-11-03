@@ -21,6 +21,7 @@ import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
+import model.Derby;
 
 public class HomeController implements Initializable {
 
@@ -41,16 +42,7 @@ public class HomeController implements Initializable {
 
     private static LocalDate dates = LocalDate.now();
 
-    private static String comments;
-    
-
-    public static void setComments(String comment) {
-        HomeController.comments = comment;
-    }
-
-    public static String getComments() {
-        return HomeController.comments;
-    }
+    static Derby drb = new Derby();
 
     public static void setDates(LocalDate date) {
         HomeController.dates = date;
@@ -59,6 +51,8 @@ public class HomeController implements Initializable {
     public static LocalDate getDates() {
         return HomeController.dates;
     }
+
+    public static boolean wasAlerted = false;
 
     @FXML
     private void handleEditor(ActionEvent event) throws IOException {
@@ -93,7 +87,6 @@ public class HomeController implements Initializable {
         BorderPane root = new BorderPane();
         Scene scene = new Scene(root, 400, 250);
         DatePicker datePicker = new DatePicker(LocalDate.now());
-
         DatePickerSkin datePickerSkin = new DatePickerSkin(datePicker);
         Node popupContent = datePickerSkin.getPopupContent();
         popupContent.setOnMouseClicked(actionEvent -> {
@@ -129,7 +122,6 @@ public class HomeController implements Initializable {
         stage = (Stage) information.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
         root = loader.load();
-
         Scene scene = new Scene(root);
         stage.setScene(scene);
         stage.show();
@@ -144,18 +136,27 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-
-        // TODO
+        drb.createDirIfNotExist();
+        drb.connectToDatabase();
+        drb.createTable();
+        drb.deleteOldJobs(drb.getStatement());
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
-        if (dates.compareTo(LocalDate.now()) == 0) {
+
+        if (!drb.getJobs(LocalDate.now()).isEmpty() && !wasAlerted) {
+            wasAlerted=true;
+            String com = "";
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
             stage.setAlwaysOnTop(true);
-            stage.toFront(); // not sure if necessary
+            stage.toFront();
             alert.setHeaderText("You have a job for today!");
-            alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea("Öntözd meg a növényeket!")));
-            alert.show();
 
+            for (String var : drb.getJobs(LocalDate.now())) {
+                com += var;
+                com += System.getProperty("line.separator");
+            }
+            alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea(com)));
+            alert.show();
         }
     }
 }
