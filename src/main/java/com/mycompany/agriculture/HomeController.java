@@ -41,7 +41,7 @@ public class HomeController implements Initializable {
 
     private static LocalDate dates = LocalDate.now();
 
-    private static String comments = "Nincs";
+    private static String comments;
 
     public static void setComments(String comment) {
         HomeController.comments = comment;
@@ -103,7 +103,7 @@ public class HomeController implements Initializable {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
                             Parent root1 = loader.load();
-                            stage.setTitle("Megjegyzések");
+                            stage.setTitle("Jobs");
                             Scene scene1 = new Scene(root1);
                             stage.setScene(scene1);
                             stage.show();
@@ -152,7 +152,7 @@ public class HomeController implements Initializable {
             alert.setHeaderText("You have a job for today!");
             alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea("Öntözd meg a növényeket!")));
             alert.show();
-
+            
         }
     }
 }

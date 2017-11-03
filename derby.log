@@ -1,0 +1,13 @@
+----------------------------------------------------------------
+Fri Nov 03 18:56:05 CET 2017:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.1.0 - (1808820): instance a816c00e-015f-8306-8c14-000006948190 
+on database directory C:\Users\ivany\Documents\.Agriculture\Jobs with class loader sun.misc.Launcher$AppClassLoader@55f96302 
+Loaded from file:/C:/Users/ivany/Documents/NetBeansProjects/agriculture/target/agriculture-1.0-SNAPSHOT.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_144-b01
+user.dir=C:\Users\ivany\Documents\NetBeansProjects\agriculture
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
