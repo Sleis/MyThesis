@@ -176,11 +176,14 @@ public class EditorController implements Initializable {
         try {
             switch (edit) {
                 case 0:
-                    if (!maps.doTheAreaGoOut(x, y) && !maps.doOverlapOneAnother(x, y)) {
+                    if (maps.doOverlapOneAnother(x, y)) {
+                        errorMessage.setText("You are covering another!");
+                    } else if (maps.doTheAreaGoOut(x, y)) {
+                        errorMessage.setText("You went out of the area!");
+                    } else {
                         maps.coloring(x, y, 1, CellType.GRASS, IDs);
                         IDs++;
-                    } else {
-                        errorMessage.setText("Kimentél a területről!");
+                        errorMessage.setText("");
                     }
                     break;
                 case 1:

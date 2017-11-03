@@ -10,11 +10,11 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.agriculture.EditorController">
    <children>
-      <Button fx:id="buttonBack" layoutX="267.0" layoutY="372.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button fx:id="buttonBack" layoutX="204.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
       <Canvas fx:id="board" height="800.0" layoutX="400.0" layoutY="50.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
-      <Button fx:id="buttonReset" layoutX="262.0" layoutY="328.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
-      <Button fx:id="buttonNew" layoutX="267.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleNew" text="New" />
-      <MenuButton fx:id="buttonMenu" layoutX="261.0" layoutY="282.0" mnemonicParsing="false" text="Size">
+      <Button fx:id="buttonReset" layoutX="202.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
+      <Button fx:id="buttonNew" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNew" text="New" />
+      <MenuButton fx:id="buttonMenu" layoutX="198.0" layoutY="284.0" mnemonicParsing="false" text="Size">
         <items>
           <MenuItem fx:id="menuItem1" mnemonicParsing="false" onAction="#handle2x2" text="2x2" />
           <MenuItem fx:id="menuItem2" mnemonicParsing="false" onAction="#handle3x3" text="3x3" />
@@ -24,11 +24,11 @@
             <MenuItem fx:id="menuItem6" mnemonicParsing="false" onAction="#handle1x4" text="1x4" />
         </items>
       </MenuButton>
-      <Label fx:id="errorMessage" layoutX="175.0" layoutY="495.0" textFill="WHITE">
+      <Label fx:id="errorMessage" layoutX="87.0" layoutY="478.0" textFill="WHITE">
          <font>
             <Font size="24.0" />
          </font></Label>
-      <MenuButton layoutX="261.0" layoutY="237.0" mnemonicParsing="false" text="Edit">
+      <MenuButton layoutX="199.0" layoutY="240.0" mnemonicParsing="false" text="Edit">
         <items>
           <MenuItem fx:id="addMenuItem" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
           <MenuItem fx:id="informationMenuItem" mnemonicParsing="false" onAction="#handleInformation" text="Information" />

@@ -41,6 +41,7 @@ public class HomeController implements Initializable {
     private Pane pane;
 
     private static LocalDate dates = LocalDate.now();
+    private static boolean wasAlerted = false;
 
     static Derby drb = new Derby();
 
@@ -51,8 +52,14 @@ public class HomeController implements Initializable {
     public static LocalDate getDates() {
         return HomeController.dates;
     }
+    
+    public static void setWasAlerted(boolean bl) {
+        HomeController.wasAlerted = bl;
+    }
 
-    public static boolean wasAlerted = false;
+    public static boolean wasAlerted() {
+        return HomeController.wasAlerted;
+    }
 
     @FXML
     private void handleEditor(ActionEvent event) throws IOException {
@@ -135,7 +142,7 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
+
         drb.createDirIfNotExist();
         drb.connectToDatabase();
         drb.createTable();
@@ -143,7 +150,7 @@ public class HomeController implements Initializable {
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
 
         if (!drb.getJobs(LocalDate.now()).isEmpty() && !wasAlerted) {
-            wasAlerted=true;
+            HomeController.setWasAlerted(true);
             String com = "";
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();

@@ -115,6 +115,10 @@ public class CalendarController implements Initializable {
                 com += System.getProperty("line.separator");
             }
             comment.setText(com);
+            //Ha ma nem volt munka és a mai naphoz adtunk munkát, akkor feljött az értesítés
+            if((HomeController.getDates().compareTo(LocalDate.now())==0) && !HomeController.wasAlerted()){
+                HomeController.setWasAlerted(true);
+            }
 
         }
 
