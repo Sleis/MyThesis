@@ -42,6 +42,7 @@ public class HomeController implements Initializable {
     private static LocalDate dates = LocalDate.now();
 
     private static String comments;
+    
 
     public static void setComments(String comment) {
         HomeController.comments = comment;
@@ -142,6 +143,8 @@ public class HomeController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        
+
         // TODO
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
         if (dates.compareTo(LocalDate.now()) == 0) {
@@ -152,7 +155,7 @@ public class HomeController implements Initializable {
             alert.setHeaderText("You have a job for today!");
             alert.getDialogPane().setExpandableContent(new ScrollPane(new TextArea("Öntözd meg a növényeket!")));
             alert.show();
-            
+
         }
     }
 }

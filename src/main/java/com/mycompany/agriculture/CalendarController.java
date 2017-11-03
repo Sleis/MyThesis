@@ -13,7 +13,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -150,6 +149,7 @@ public class CalendarController implements Initializable {
         Statement stmt;
         try {
             stmt = conn.createStatement();
+            
             ResultSet rs = stmt.executeQuery("SELECT * FROM jobs");
             while (rs.next()) {
                 if (rs.getString("date").equals(HomeController.getDates().toString())) {
@@ -168,7 +168,7 @@ public class CalendarController implements Initializable {
 
         } catch (SQLException ex) {
             System.out.println(ex.getSQLState());
-        }
+        }       
 
     }
 
