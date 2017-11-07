@@ -5,7 +5,7 @@
  */
 package com.mycompany.agriculture;
 
-import static com.mycompany.agriculture.HomeController.drb;
+import static com.mycompany.agriculture.HomeController.jobDrb;
 import com.sun.javafx.scene.control.skin.DatePickerSkin;
 import java.io.IOException;
 import java.net.URL;
@@ -99,18 +99,22 @@ public class CalendarController implements Initializable {
     @FXML
     private void handleAdd(ActionEvent event) {
         if (textArea.getText().isEmpty()) {
+            errorLabel.setText("");
             errorLabel1.setText("Type a job!");
             errorLabel1.setTextFill(Color.RED);
 
         } else if (textArea.getText().length() > 100) {
+            errorLabel1.setText("");
             errorLabel.setText("Maximum 100 charachters!");
             errorLabel.setTextFill(Color.RED);
 
         } else {
-            drb.addNewJob(textArea.getText(), HomeController.getDates());
+            errorLabel.setText("");
+            errorLabel1.setText("");
+            jobDrb.addNewJob(textArea.getText(), HomeController.getDates());
             textArea.clear();
             String com = "";
-            for (String var : drb.getJobs(HomeController.getDates())) {
+            for (String var : jobDrb.getJobs(HomeController.getDates())) {
                 com += var;
                 com += System.getProperty("line.separator");
             }
@@ -126,7 +130,7 @@ public class CalendarController implements Initializable {
 
     @FXML
     private void handleReset(ActionEvent event) {
-        drb.deleteJobs(HomeController.getDates());
+        jobDrb.deleteJobs(HomeController.getDates());
         comment.setText("You haven't got any jobs today.");
     }
 
@@ -136,10 +140,10 @@ public class CalendarController implements Initializable {
         // TODO
         dateLabel.setText("Date: " + HomeController.getDates());
         String com = "";
-        if (drb.getJobs(HomeController.getDates()).isEmpty()) {
+        if (jobDrb.getJobs(HomeController.getDates()).isEmpty()) {
             comment.setText("You haven't got any jobs today.");
         } else {
-            for (String var : drb.getJobs(HomeController.getDates())) {
+            for (String var : jobDrb.getJobs(HomeController.getDates())) {
                 com += var;
                 com += "\r";
             }

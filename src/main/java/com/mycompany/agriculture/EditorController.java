@@ -5,9 +5,17 @@
  */
 package com.mycompany.agriculture;
 
+import static com.mycompany.agriculture.HomeController.jobDrb;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
+import java.util.Calendar;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -25,6 +33,7 @@ import javafx.stage.Modality;
 import javafx.stage.Stage;
 import model.Cell;
 import model.CellType;
+import model.MapDerby;
 import model.TheMap;
 
 /**
@@ -46,6 +55,9 @@ public class EditorController implements Initializable {
     private Button buttonAdd;
 
     @FXML
+    private Button buttonSave;
+
+    @FXML
     private Pane pane;
 
     @FXML
@@ -53,6 +65,8 @@ public class EditorController implements Initializable {
 
     @FXML
     private Label errorMessage;
+
+    static MapDerby mapDrb = new MapDerby();
 
     Cell[][] cells;
     TheMap maps;
@@ -84,6 +98,19 @@ public class EditorController implements Initializable {
     }
 
     @FXML
+    private void handleSave(ActionEvent event) {
+        mapDrb.deleteMap();
+        for (int i = 0; i < maps.getWidth(); i++) {
+            for (int j = 0; j < maps.getHeigth(); j++) {
+                if (maps.getCell()[i][j].getStatus() == 1) {
+                    mapDrb.addCell(i, j, maps.getCell()[i][j].getID(), maps.getCell()[i][j].getCelltype().toString());
+                }
+            }
+        }
+
+    }
+
+    @FXML
     private void handleBack(ActionEvent event) throws IOException {
         Stage stage;
         Parent root;
@@ -97,7 +124,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handle2x2(ActionEvent event) throws IOException {
+    private void handle2x2(ActionEvent event
+    ) {
         int[] tmp = new int[2];
         tmp[0] = 2;
         tmp[1] = 2;
@@ -105,7 +133,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handle3x3(ActionEvent event) throws IOException {
+    private void handle3x3(ActionEvent event
+    ) {
         int[] tmp = new int[2];
         tmp[0] = 3;
         tmp[1] = 3;
@@ -113,7 +142,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handle3x1(ActionEvent event) throws IOException {
+    private void handle3x1(ActionEvent event
+    ) {
         int[] tmp = new int[2];
         tmp[0] = 3;
         tmp[1] = 1;
@@ -121,7 +151,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handle2x4(ActionEvent event) throws IOException {
+    private void handle2x4(ActionEvent event
+    ) {
         int[] tmp = new int[2];
         tmp[0] = 2;
         tmp[1] = 4;
@@ -129,7 +160,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handle5x2(ActionEvent event) throws IOException {
+    private void handle5x2(ActionEvent event
+    ) {
         int[] tmp = new int[2];
         tmp[0] = 5;
         tmp[1] = 2;
@@ -137,7 +169,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handle1x4(ActionEvent event) throws IOException {
+    private void handle1x4(ActionEvent event
+    ) {
         int[] tmp = new int[2];
         tmp[0] = 1;
         tmp[1] = 4;
@@ -145,7 +178,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handleReset(ActionEvent event) {
+    private void handleReset(ActionEvent event
+    ) {
         for (int i = 0; i < maps.getWidth(); i++) {
             for (int j = 0; j < maps.getHeigth(); j++) {
                 maps.getCell()[i][j].setDefault();
@@ -155,24 +189,28 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handleAdd(ActionEvent event) throws IOException {
+    private void handleAdd(ActionEvent event
+    ) {
         edit = 0;
     }
 
     @FXML
-    private void handleInformation(ActionEvent event) throws IOException {
+    private void handleInformation(ActionEvent event
+    ) {
         edit = 1;
     }
 
     @FXML
-    private void handleDelete(ActionEvent event) throws IOException {
+    private void handleDelete(ActionEvent event
+    ) {
         edit = 2;
     }
 
     @FXML
-    private void handleClick(MouseEvent e) {
-        int x = (int) e.getX() / maps.getRate();
-        int y = (int) e.getY() / maps.getRate();
+    private void handleClick(MouseEvent e
+    ) {
+        int x = (int) e.getX() / maps.getWidthRate();
+        int y = (int) e.getY() / maps.getHeigthRate();
         try {
             switch (edit) {
                 case 0:
@@ -212,11 +250,12 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handleMoved(MouseEvent e) {
+    private void handleMoved(MouseEvent e
+    ) {
         if (edit == 0) {
             maps.reset();
-            int x = (int) e.getX() / maps.getRate();
-            int y = (int) e.getY() / maps.getRate();
+            int x = (int) e.getX() / maps.getWidthRate();
+            int y = (int) e.getY() / maps.getHeigthRate();
             if (!maps.doTheAreaGoOut(x, y) && !maps.doOverlapOneAnother(x, y)) {
                 maps.coloring(x, y, 0, CellType.MOVE);
             } else {
@@ -227,7 +266,8 @@ public class EditorController implements Initializable {
     }
 
     @FXML
-    private void handleExited(MouseEvent e) {
+    private void handleExited(MouseEvent e
+    ) {
         for (int i = 0; i < maps.getWidth(); i++) {
             for (int j = 0; j < maps.getHeigth(); j++) {
                 maps.getCell()[i][j].setDefaultIfStatusZero();
@@ -243,25 +283,26 @@ public class EditorController implements Initializable {
                 switch (maps.getCell()[i][j].getCelltype()) {
                     case DIRT:
                         boardGraphics.setFill(Color.BROWN);
-                        boardGraphics.fillRect(i * maps.getRate(), j * maps.getRate(), maps.getRate(), maps.getRate());
+                        boardGraphics.fillRect(i * maps.getWidthRate(), j * maps.getHeigthRate(), maps.getWidthRate(), maps.getHeigthRate());
                         break;
                     case GRASS:
                         boardGraphics.setFill(Color.GREEN);
-                        boardGraphics.fillRect(i * maps.getRate(), j * maps.getRate(), maps.getRate(), maps.getRate());
+                        boardGraphics.fillRect(i * maps.getWidthRate(), j * maps.getHeigthRate(), maps.getWidthRate(), maps.getHeigthRate());
                         break;
                     case MOVE:
                         boardGraphics.setFill(Color.YELLOW);
-                        boardGraphics.fillRect(i * maps.getRate(), j * maps.getRate(), maps.getRate(), maps.getRate());
+                        boardGraphics.fillRect(i * maps.getWidthRate(), j * maps.getHeigthRate(), maps.getWidthRate(), maps.getHeigthRate());
                         break;
                     case ERROR:
                         boardGraphics.setFill(Color.RED);
-                        boardGraphics.fillRect(i * maps.getRate(), j * maps.getRate(), maps.getRate(), maps.getRate());
+                        boardGraphics.fillRect(i * maps.getWidthRate(), j * maps.getHeigthRate(), maps.getWidthRate(), maps.getHeigthRate());
                         break;
                     default:
                         boardGraphics.setFill(Color.BLUE);
-                        boardGraphics.fillRect(i * maps.getRate(), j * maps.getRate(), maps.getRate(), maps.getRate());
+                        boardGraphics.fillRect(i * maps.getWidthRate(), j * maps.getHeigthRate(), maps.getWidthRate(), maps.getHeigthRate());
                         break;
                 }
+
             }
         }
         board.setLayoutX((1600 - board.getWidth()) / 2);
@@ -272,30 +313,53 @@ public class EditorController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        mapDrb.createDirIfNotExist();
+        mapDrb.connectToDatabase();
+        mapDrb.createTable();
+
         edit = 0;
         IDs = 1;
         maps = new TheMap();
         maps.setHeigth(Integer.parseInt(NewStageController.getHeigth()));
         maps.setWidth(Integer.parseInt(NewStageController.getWidth()));
         cells = new Cell[maps.getWidth()][maps.getHeigth()];
-
-        if (maps.getWidth() <= 50) {
-            maps.setRate(16);
-        } else if (maps.getWidth() > 50 && maps.getWidth() <= 100) {
-            maps.setRate(8);
-        } else {
-            maps.setRate(4);
-        }
-
-        maps.setArea(1, 1);
-
-        board.setWidth(maps.getWidth() * maps.getRate());
-        board.setHeight(maps.getHeigth() * maps.getRate());
         for (int i = 0; i < maps.getWidth(); i++) {
             for (int j = 0; j < maps.getHeigth(); j++) {
                 cells[i][j] = new Cell(CellType.DIRT, 0, 0);
             }
         }
+
+        if (maps.getWidth() <= 50) {
+            maps.setWidthRate(16);
+        } else if (maps.getWidth() > 50 && maps.getWidth() <= 100) {
+            maps.setWidthRate(8);
+        } else {
+            maps.setWidthRate(4);
+        }
+        if (maps.getHeigth() <= 50) {
+            maps.setHeightRate(16);
+        } else if (maps.getHeigth() > 50 && maps.getHeigth() <= 100) {
+            maps.setHeightRate(8);
+        } else {
+            maps.setHeightRate(4);
+        }
+
+        maps.setArea(1, 1);
+
+        board.setWidth(maps.getWidth() * maps.getWidthRate());
+        board.setHeight(maps.getHeigth() * maps.getHeigthRate());
+        try {
+            ResultSet rs = mapDrb.getMap();
+            while (rs.next()) {
+                if (rs.getString("cellType").equals("GRASS")) {
+                    cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.GRASS, 1, Integer.parseInt(rs.getString("cellsID")));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EditorController.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+
         maps.setCell(cells);
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
         boardGraphics = board.getGraphicsContext2D();

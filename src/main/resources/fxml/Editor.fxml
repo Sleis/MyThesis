@@ -10,7 +10,7 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.agriculture.EditorController">
    <children>
-      <Button fx:id="buttonBack" layoutX="204.0" layoutY="377.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
+      <Button fx:id="buttonBack" layoutX="204.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
       <Canvas fx:id="board" height="800.0" layoutX="400.0" layoutY="50.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
       <Button fx:id="buttonReset" layoutX="202.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
       <Button fx:id="buttonNew" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNew" text="New" />
@@ -35,5 +35,6 @@
             <MenuItem fx:id="deleteaddMenuItem" mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
         </items>
       </MenuButton>
+      <Button fx:id="buttonSave" layoutX="204.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSave" text="Save" />
    </children>
 </AnchorPane>

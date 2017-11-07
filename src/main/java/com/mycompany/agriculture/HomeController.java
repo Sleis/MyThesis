@@ -3,8 +3,11 @@ package com.mycompany.agriculture;
 import com.sun.javafx.scene.control.skin.DatePickerSkin;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -20,8 +23,9 @@ import javafx.scene.control.TextArea;
 import javafx.scene.input.MouseButton;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.Pane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.Derby;
+import model.JobsDerby;
 
 public class HomeController implements Initializable {
 
@@ -43,7 +47,7 @@ public class HomeController implements Initializable {
     private static LocalDate dates = LocalDate.now();
     private static boolean wasAlerted = false;
 
-    static Derby drb = new Derby();
+    static JobsDerby jobDrb = new JobsDerby();
 
     public static void setDates(LocalDate date) {
         HomeController.dates = date;
@@ -52,7 +56,7 @@ public class HomeController implements Initializable {
     public static LocalDate getDates() {
         return HomeController.dates;
     }
-    
+
     public static void setWasAlerted(boolean bl) {
         HomeController.wasAlerted = bl;
     }
@@ -79,6 +83,8 @@ public class HomeController implements Initializable {
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/NewStage.fxml"));
             Parent root = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(pane.getScene().getWindow());
             stage.setScene(new Scene(root));
             stage.show();
 
@@ -143,13 +149,13 @@ public class HomeController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
 
-        drb.createDirIfNotExist();
-        drb.connectToDatabase();
-        drb.createTable();
-        drb.deleteOldJobs(drb.getStatement());
+        jobDrb.createDirIfNotExist();
+        jobDrb.connectToDatabase();
+        jobDrb.createTable();
+
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
 
-        if (!drb.getJobs(LocalDate.now()).isEmpty() && !wasAlerted) {
+        if (!jobDrb.getJobs(LocalDate.now()).isEmpty() && !wasAlerted) {
             HomeController.setWasAlerted(true);
             String com = "";
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
@@ -158,7 +164,7 @@ public class HomeController implements Initializable {
             stage.toFront();
             alert.setHeaderText("You have a job for today!");
 
-            for (String var : drb.getJobs(LocalDate.now())) {
+            for (String var : jobDrb.getJobs(LocalDate.now())) {
                 com += var;
                 com += System.getProperty("line.separator");
             }

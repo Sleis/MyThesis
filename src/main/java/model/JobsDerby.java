@@ -25,18 +25,18 @@ import java.util.logging.Logger;
  *
  * @author ivany
  */
-public class Derby {
+public class JobsDerby {
 
     private static Connection connection;
     private static Statement stmt;
-    private static Path p = Paths.get(System.getProperty("user.home"), "Documents", ".Agriculture");
-    private static final String host = "jdbc:derby:" + Paths.get(System.getProperty("user.home")) + "\\Documents\\.Agriculture\\Jobs;create=true";
+    private static final Path P = Paths.get(System.getProperty("user.home"), "Documents", ".Agriculture");
+    private static final String HOST = "jdbc:derby:" + Paths.get(System.getProperty("user.home")) + "\\Documents\\.Agriculture\\Jobs;create=true";
 
     public void connectToDatabase() {
         try {
-            connection = DriverManager.getConnection(host, "admins", "admins");
+            connection = DriverManager.getConnection(HOST, "admins", "admins");
         } catch (SQLException ex) {
-            Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JobsDerby.class.getName()).log(Level.SEVERE, null, ex);
         }
 
     }
@@ -56,9 +56,9 @@ public class Derby {
 
     public void createDirIfNotExist() {
         try {
-            if (!p.toFile().exists()) {
-                p.toFile().mkdirs();
-                Files.setAttribute(p, "dos:hidden", true);
+            if (!P.toFile().exists()) {
+                P.toFile().mkdirs();
+                Files.setAttribute(P, "dos:hidden", true);
             }
         } catch (IOException ex) {
             Logger.getLogger(HomeController.class.getName()).log(Level.SEVERE, null, ex);
@@ -77,7 +77,7 @@ public class Derby {
         try {
             stmt.executeUpdate("DELETE FROM jobs WHERE date < '2017-11-03'");
         } catch (SQLException ex) {
-            Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JobsDerby.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -85,7 +85,7 @@ public class Derby {
         try {
             stmt.executeUpdate("insert into jobs (date,job) values ('" + date + "','" + job + "')");
         } catch (SQLException ex) {
-            Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JobsDerby.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
@@ -97,7 +97,7 @@ public class Derby {
                 ar.add(rs.getString("job"));
             }
         } catch (SQLException ex) {
-            Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JobsDerby.class.getName()).log(Level.SEVERE, null, ex);
         }
         return ar;
     }
@@ -106,7 +106,7 @@ public class Derby {
         try {
             stmt.executeUpdate("DELETE FROM jobs WHERE date = '" + date + "'");
         } catch (SQLException ex) {
-            Logger.getLogger(Derby.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(JobsDerby.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

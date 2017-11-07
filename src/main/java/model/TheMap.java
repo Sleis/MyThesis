@@ -12,13 +12,14 @@ package model;
 public class TheMap {
 
     private Cell[][] cell;
-    private int rate;
+    private int[] rate = new int[2];
     private int[] area = new int[2];
     private int width;
     private int heigth;
 
     public TheMap() {
-        rate = 1;
+        rate[0] = 1;
+        rate[1] = 1;
         area[0] = 1;
         area[1] = 1;
         width = 1;
@@ -37,8 +38,12 @@ public class TheMap {
         return heigth;
     }
 
-    public int getRate() {
-        return rate;
+    public int getWidthRate() {
+        return rate[0];
+    }
+
+    public int getHeigthRate() {
+        return rate[1];
     }
 
     public int[] getArea() {
@@ -53,8 +58,12 @@ public class TheMap {
         this.width = w;
     }
 
-    public void setRate(int rate) {
-        this.rate = rate;
+    public void setWidthRate(int rate) {
+        this.rate[0] = rate;
+    }
+
+    public void setHeightRate(int rate) {
+        this.rate[1] = rate;
     }
 
     public void setArea(int[] area) {
@@ -186,7 +195,7 @@ public class TheMap {
                 break;
         }
     }
-    
+
     public void coloring(int x, int y, int status, CellType celltype, int id) {
         switch (evenOrNotTheAreasValues()) {
             case 0:
@@ -274,13 +283,12 @@ public class TheMap {
             }
         }
     }
-    
-    public void checkAll(int id)
-    {
-        for(int i=0;i<this.getWidth(); i++){
-            for(int j=0; j< this.getHeigth();j++){
-                if(this.getCell()[i][j].getID()==id){
-                    this.getCell()[i][j].setDefault();                    
+
+    public void checkAll(int id) {
+        for (int i = 0; i < this.getWidth(); i++) {
+            for (int j = 0; j < this.getHeigth(); j++) {
+                if (this.getCell()[i][j].getID() == id) {
+                    this.getCell()[i][j].setDefault();
                 }
             }
         }

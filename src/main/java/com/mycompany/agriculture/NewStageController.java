@@ -66,6 +66,7 @@ public class NewStageController implements Initializable {
                 NewStageController.setHeigth(fieldHeigth.getText());
                 NewStageController.setWidth(fieldWidth.getText());
                 ((Node) (event.getSource())).getScene().getWindow().hide();
+                EditorController.mapDrb.deleteMap();
             }
         } catch (NumberFormatException nfe) {
             labelErrorMessage.setText("Please, enter integer values!");
