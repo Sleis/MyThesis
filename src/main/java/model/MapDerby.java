@@ -39,13 +39,26 @@ public class MapDerby {
 
     }
 
-    public void createTable() {
+    public void createMapsCellsTable() {
         try {
             stmt = connection.createStatement();
             DatabaseMetaData md = connection.getMetaData();
             ResultSet rs = md.getTables(null, null, "MAP", null);
             if (!rs.next()) {
                 stmt.executeUpdate("Create table map (id INTEGER NOT NULL GENERATED ALWAYS AS IDENTITY (START WITH 1, INCREMENT BY 1), x INTEGER, y INTEGER, cellsID INTEGER, cellType varchar(20))");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    public void createMapsSizeTable() {
+        try {
+            stmt = connection.createStatement();
+            DatabaseMetaData md = connection.getMetaData();
+            ResultSet rs = md.getTables(null, null, "SIZE", null);
+            if (!rs.next()) {
+                stmt.executeUpdate("Create table size  (x INTEGER, y INTEGER)");
             }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -81,14 +94,37 @@ public class MapDerby {
 
     }
 
+    public void addSize(int i, int j) {
+
+        try {
+            stmt.executeUpdate("insert into size (x,y) values (" + i + "," + j + ")");
+        } catch (SQLException ex) {
+            Logger.getLogger(MapDerby.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+    }
+
     public ResultSet getMap() throws SQLException {
         return stmt.executeQuery("SELECT * FROM map");
     }
 
-
+     public ResultSet getSize() throws SQLException {
+        return stmt.executeQuery("SELECT * FROM size");
+    }
+     
     public void deleteMap() {
         try {
             stmt.executeUpdate("DELETE FROM map");
+
+        } catch (SQLException ex) {
+            Logger.getLogger(JobsDerby.class
+                    .getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void deleteSize() {
+        try {
+            stmt.executeUpdate("DELETE FROM size");
 
         } catch (SQLException ex) {
             Logger.getLogger(JobsDerby.class

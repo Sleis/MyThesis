@@ -34,39 +34,20 @@ public class NewStageController implements Initializable {
     @FXML
     private Label labelErrorMessage;
 
-    private static String heigth = "100";
-    private static String width = "100";
-
-    public static void setWidth(String w) {
-        NewStageController.width = w;
-    }
-
-    public static void setHeigth(String h) {
-        NewStageController.heigth = h;
-    }
-
-    public static String getHeigth() {
-        return heigth;
-    }
-
-    public static String getWidth() {
-        return width;
-    }
-
     @FXML
     private void handleOk(ActionEvent event) throws IOException {
         try {
-            int w = Integer.parseInt(fieldWidth.getText());
-            int h = Integer.parseInt(fieldHeigth.getText());
-            if (heigth.equals("") || width.equals("")) {
+
+            if (fieldWidth.getText().equals("") || fieldHeigth.getText().equals("")) {
                 labelErrorMessage.setText("Enter both values!");
-            } else if (w > 200 || h > 200) {
+            } else if (Integer.parseInt(fieldWidth.getText()) > 200 || Integer.parseInt(fieldHeigth.getText()) > 200) {
                 labelErrorMessage.setText("Maximum values are 200!");
             } else {
-                NewStageController.setHeigth(fieldHeigth.getText());
-                NewStageController.setWidth(fieldWidth.getText());
+
                 ((Node) (event.getSource())).getScene().getWindow().hide();
                 EditorController.mapDrb.deleteMap();
+                EditorController.mapDrb.deleteSize();
+                EditorController.mapDrb.addSize(Integer.parseInt(fieldWidth.getText()), Integer.parseInt(fieldHeigth.getText()));
             }
         } catch (NumberFormatException nfe) {
             labelErrorMessage.setText("Please, enter integer values!");

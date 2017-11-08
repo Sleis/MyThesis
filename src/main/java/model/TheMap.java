@@ -22,8 +22,6 @@ public class TheMap {
         rate[1] = 1;
         area[0] = 1;
         area[1] = 1;
-        width = 1;
-        heigth = 1;
     }
 
     public Cell[][] getCell() {

@@ -17,5 +17,9 @@
          </font>
       </Label>
       <Button fx:id="calendar" layoutX="121.0" layoutY="158.0" mnemonicParsing="false" onAction="#handleCalendar" prefHeight="25.0" prefWidth="79.0" text="Calendar" />
+      <Label fx:id="labelAlert" layoutX="131.0" layoutY="521.0" onMouseClicked="#handleAlertClick" textFill="WHITE">
+         <font>
+            <Font size="37.0" />
+         </font></Label>
    </children>
 </AnchorPane>
