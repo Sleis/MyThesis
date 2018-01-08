@@ -27,10 +27,10 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import model.Cell;
-import model.CellType;
-import model.MapDerby;
-import model.TheMap;
+import model.Map.Cell;
+import model.Map.CellType;
+import model.DB.MapDerby;
+import model.Map.TheMap;
 
 /**
  *
