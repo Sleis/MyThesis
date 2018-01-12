@@ -45,6 +45,7 @@ public class NewStageController implements Initializable {
             } else {
 
                 ((Node) (event.getSource())).getScene().getWindow().hide();
+                EditorController.mapDrb.createMapsCellsTable();
                 EditorController.mapDrb.deleteMap();
                 EditorController.mapDrb.deleteSize();
                 EditorController.mapDrb.addSize(Integer.parseInt(fieldWidth.getText()), Integer.parseInt(fieldHeigth.getText()));

@@ -14,14 +14,33 @@
       <Canvas fx:id="board" height="800.0" layoutX="400.0" layoutY="50.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
       <Button fx:id="buttonReset" layoutX="202.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
       <Button fx:id="buttonNew" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNew" text="New" />
-      <MenuButton fx:id="buttonMenu" layoutX="198.0" layoutY="284.0" mnemonicParsing="false" text="Size">
+      <MenuButton fx:id="buttonMenu" layoutX="198.0" layoutY="284.0" mnemonicParsing="false" text="Típus">
         <items>
-          <MenuItem fx:id="menuItem1" mnemonicParsing="false" onAction="#handle2x2" text="2x2" />
-          <MenuItem fx:id="menuItem2" mnemonicParsing="false" onAction="#handle3x3" text="3x3" />
-            <MenuItem fx:id="menuItem3" mnemonicParsing="false" onAction="#handle3x1" text="3x1" />
-            <MenuItem fx:id="menuItem4" mnemonicParsing="false" onAction="#handle2x4" text="2x4" />
-            <MenuItem fx:id="menuItem5" mnemonicParsing="false" onAction="#handle5x2" text="5x2" />
-            <MenuItem fx:id="menuItem6" mnemonicParsing="false" onAction="#handle1x4" text="1x4" />
+          <MenuItem fx:id="menuItem1" mnemonicParsing="false" onAction="#búza" text="Búza" />
+          <MenuItem fx:id="menuItem2" mnemonicParsing="false" onAction="#kukorica" text="Kukorica" />
+            <MenuItem fx:id="menuItem3" mnemonicParsing="false" onAction="#burgonya" text="Burgonya" />
+            <MenuItem fx:id="menuItem4" mnemonicParsing="false" onAction="#cukorrépa" text="Cukorrépa" />
+            <MenuItem fx:id="menuItem5" mnemonicParsing="false" onAction="#napraforgó" text="Napraforgó" />
+            <MenuItem fx:id="menuItem11" mnemonicParsing="false" onAction="#fejeskáposzta" text="Fejes káposzta" />
+            <MenuItem fx:id="menuItem21" mnemonicParsing="false" onAction="#karalábé" text="Karalábé" />
+            <MenuItem fx:id="menuItem31" mnemonicParsing="false" onAction="#uborka" text="Uborka" />
+            <MenuItem fx:id="menuItem41" mnemonicParsing="false" onAction="#petrezselyem" text="Petrezselyem" />
+            <MenuItem fx:id="menuItem51" mnemonicParsing="false" onAction="#sárgarépa" text="Sárgarépa" />
+            <MenuItem fx:id="menuItem12" mnemonicParsing="false" onAction="#retek" text="Retek" />
+            <MenuItem fx:id="menuItem22" mnemonicParsing="false" onAction="#paprika" text="Paprika" />
+            <MenuItem fx:id="menuItem32" mnemonicParsing="false" onAction="#paradicsom" text="Paradicsom" />
+            <MenuItem fx:id="menuItem42" mnemonicParsing="false" onAction="#vöröshagyma" text="Vöröshagyma" />
+            <MenuItem fx:id="menuItem52" mnemonicParsing="false" onAction="#borsó" text="Borsó" />
+            <MenuItem fx:id="menuItem13" mnemonicParsing="false" onAction="#alma" text="Alma" />
+            <MenuItem fx:id="menuItem23" mnemonicParsing="false" onAction="#körte" text="Körte" />
+            <MenuItem fx:id="menuItem33" mnemonicParsing="false" onAction="#cseresznye" text="Cseresznye" />
+            <MenuItem fx:id="menuItem43" mnemonicParsing="false" onAction="#meggy" text="Meggy" />
+            <MenuItem fx:id="menuItem53" mnemonicParsing="false" onAction="#szilva" text="Szilva" />
+            <MenuItem fx:id="menuItem14" mnemonicParsing="false" onAction="#őszibarack" text="Őszibarack" />
+            <MenuItem fx:id="menuItem24" mnemonicParsing="false" onAction="#dió" text="Dió" />
+            <MenuItem fx:id="menuItem34" mnemonicParsing="false" onAction="#málna" text="Málna" />
+            <MenuItem fx:id="menuItem44" mnemonicParsing="false" onAction="#eper" text="Eper" />
+            <MenuItem fx:id="menuItem54" mnemonicParsing="false" onAction="#szeder" text="Szeder" />
         </items>
       </MenuButton>
       <Label fx:id="errorMessage" layoutX="87.0" layoutY="478.0" textFill="WHITE">
