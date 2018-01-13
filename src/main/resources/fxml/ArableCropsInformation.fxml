@@ -19,7 +19,7 @@
       <Label layoutX="25.0" layoutY="225.0" text="Vetésmélyéség:" />
       <Label layoutX="25.0" layoutY="258.0" text="Ápolás:" />
       <Label layoutX="25.0" layoutY="296.0" text="Szedés:" />
-      <Label fx:id="arableCropsName" layoutX="53.0" layoutY="76.0" prefHeight="17.0" prefWidth="539.0" />
+      <Label fx:id="arableCropsName" layoutX="63.0" layoutY="76.0" prefHeight="17.0" prefWidth="529.0" />
       <Label fx:id="arableCropsSoil" layoutX="69.0" layoutY="105.0" prefHeight="17.0" prefWidth="518.0" />
       <Label fx:id="arableCropsPlanting" layoutX="69.0" layoutY="136.0" prefHeight="17.0" prefWidth="518.0" />
       <Label fx:id="arableCropsForecrops" layoutX="107.0" layoutY="164.0" prefHeight="17.0" prefWidth="483.0" />

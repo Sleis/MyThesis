@@ -23,25 +23,11 @@ import javafx.stage.Stage;
  * @author ivany
  */
 public class InformationController implements Initializable {
-    @FXML
-    private Button back;
     
     @FXML
     private Pane pane;
     
-    
-    @FXML
-    private void handleBack(ActionEvent event) throws IOException {
-        Stage stage;
-        Parent root;
-        stage = (Stage) back.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
-        root = loader.load();
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
+   
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
