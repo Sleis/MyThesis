@@ -155,7 +155,7 @@ public class HomeController implements Initializable {
                 isCalendarOpened = false;
             });
             stage.setScene(scene);
-            stage.setTitle("Calendar");
+            stage.setTitle("Naptár");
             stage.show();
         }
     }
@@ -186,7 +186,7 @@ public class HomeController implements Initializable {
         Stage stage = (Stage) alert.getDialogPane().getScene().getWindow();
         stage.initOwner(pane.getScene().getWindow());
         stage.resizableProperty().setValue(Boolean.FALSE);
-        alert.setHeaderText("You have a job for today!");
+        alert.setHeaderText("Van egy feladatod mára.");
         for (String var : jobDrb.getJobs(LocalDate.now())) {
             com += var;
             com += System.getProperty("line.separator");
@@ -208,7 +208,7 @@ public class HomeController implements Initializable {
         pane.setStyle("-fx-background-image: url(\"/pictures/negy.JPG\");");
 
         if (!jobDrb.getJobs(LocalDate.now()).isEmpty() && !wasAlerted) {
-            labelAlert.setText("You have a notification!");
+            labelAlert.setText("Van egy értesítése!");
 
         }
     }

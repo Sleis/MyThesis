@@ -6,54 +6,208 @@
 <?import javafx.scene.control.MenuButton?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
 <AnchorPane id="AnchorPane" fx:id="pane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.agriculture.EditorController">
-   <children>
-      <Button fx:id="buttonBack" layoutX="204.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleBack" text="Back" />
-      <Canvas fx:id="board" height="800.0" layoutX="400.0" layoutY="50.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
-      <Button fx:id="buttonReset" layoutX="202.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleReset" text="Reset" />
-      <Button fx:id="buttonNew" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNew" text="New" />
-      <MenuButton fx:id="buttonMenu" layoutX="198.0" layoutY="284.0" mnemonicParsing="false" text="Típus">
-        <items>
-          <MenuItem fx:id="menuItem1" mnemonicParsing="false" onAction="#búza" text="Búza" />
-          <MenuItem fx:id="menuItem2" mnemonicParsing="false" onAction="#kukorica" text="Kukorica" />
-            <MenuItem fx:id="menuItem3" mnemonicParsing="false" onAction="#burgonya" text="Burgonya" />
-            <MenuItem fx:id="menuItem4" mnemonicParsing="false" onAction="#cukorrépa" text="Cukorrépa" />
-            <MenuItem fx:id="menuItem5" mnemonicParsing="false" onAction="#napraforgó" text="Napraforgó" />
-            <MenuItem fx:id="menuItem11" mnemonicParsing="false" onAction="#fejeskáposzta" text="Fejes káposzta" />
-            <MenuItem fx:id="menuItem21" mnemonicParsing="false" onAction="#karalábé" text="Karalábé" />
-            <MenuItem fx:id="menuItem31" mnemonicParsing="false" onAction="#uborka" text="Uborka" />
-            <MenuItem fx:id="menuItem41" mnemonicParsing="false" onAction="#petrezselyem" text="Petrezselyem" />
-            <MenuItem fx:id="menuItem51" mnemonicParsing="false" onAction="#sárgarépa" text="Sárgarépa" />
-            <MenuItem fx:id="menuItem12" mnemonicParsing="false" onAction="#retek" text="Retek" />
-            <MenuItem fx:id="menuItem22" mnemonicParsing="false" onAction="#paprika" text="Paprika" />
-            <MenuItem fx:id="menuItem32" mnemonicParsing="false" onAction="#paradicsom" text="Paradicsom" />
-            <MenuItem fx:id="menuItem42" mnemonicParsing="false" onAction="#vöröshagyma" text="Vöröshagyma" />
-            <MenuItem fx:id="menuItem52" mnemonicParsing="false" onAction="#borsó" text="Borsó" />
-            <MenuItem fx:id="menuItem13" mnemonicParsing="false" onAction="#alma" text="Alma" />
-            <MenuItem fx:id="menuItem23" mnemonicParsing="false" onAction="#körte" text="Körte" />
-            <MenuItem fx:id="menuItem33" mnemonicParsing="false" onAction="#cseresznye" text="Cseresznye" />
-            <MenuItem fx:id="menuItem43" mnemonicParsing="false" onAction="#meggy" text="Meggy" />
-            <MenuItem fx:id="menuItem53" mnemonicParsing="false" onAction="#szilva" text="Szilva" />
-            <MenuItem fx:id="menuItem14" mnemonicParsing="false" onAction="#őszibarack" text="Őszibarack" />
-            <MenuItem fx:id="menuItem24" mnemonicParsing="false" onAction="#dió" text="Dió" />
-            <MenuItem fx:id="menuItem34" mnemonicParsing="false" onAction="#málna" text="Málna" />
-            <MenuItem fx:id="menuItem44" mnemonicParsing="false" onAction="#eper" text="Eper" />
-            <MenuItem fx:id="menuItem54" mnemonicParsing="false" onAction="#szeder" text="Szeder" />
-        </items>
-      </MenuButton>
-      <Label fx:id="errorMessage" layoutX="87.0" layoutY="478.0" textFill="WHITE">
-         <font>
-            <Font size="24.0" />
-         </font></Label>
-      <MenuButton layoutX="199.0" layoutY="240.0" mnemonicParsing="false" text="Edit">
-        <items>
-          <MenuItem fx:id="addMenuItem" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
-          <MenuItem fx:id="informationMenuItem" mnemonicParsing="false" onAction="#handleInformation" text="Information" />
-            <MenuItem fx:id="deleteaddMenuItem" mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
-        </items>
-      </MenuButton>
-      <Button fx:id="buttonSave" layoutX="204.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSave" text="Save" />
-   </children>
+    <children>
+        <Button fx:id="buttonBack" layoutX="204.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleBack" text="Vissza" />
+        <Canvas fx:id="board" height="800.0" layoutX="406.0" layoutY="42.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
+        <Button fx:id="buttonReset" layoutX="202.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleReset" text="Törlés" />
+        <Button fx:id="buttonNew" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNew" text="Új" />
+        <MenuButton fx:id="buttonMenu" layoutX="198.0" layoutY="284.0" mnemonicParsing="false" text="Típus">
+            <items>
+                <MenuItem fx:id="menuItem1" mnemonicParsing="false" onAction="#búza" text="Búza" />
+                <MenuItem fx:id="menuItem2" mnemonicParsing="false" onAction="#kukorica" text="Kukorica" />
+                <MenuItem fx:id="menuItem3" mnemonicParsing="false" onAction="#burgonya" text="Burgonya" />
+                <MenuItem fx:id="menuItem4" mnemonicParsing="false" onAction="#cukorrépa" text="Cukorrépa" />
+                <MenuItem fx:id="menuItem5" mnemonicParsing="false" onAction="#napraforgó" text="Napraforgó" />
+                <MenuItem fx:id="menuItem11" mnemonicParsing="false" onAction="#fejeskáposzta" text="Fejes káposzta" />
+                <MenuItem fx:id="menuItem21" mnemonicParsing="false" onAction="#karalábé" text="Karalábé" />
+                <MenuItem fx:id="menuItem31" mnemonicParsing="false" onAction="#uborka" text="Uborka" />
+                <MenuItem fx:id="menuItem41" mnemonicParsing="false" onAction="#petrezselyem" text="Petrezselyem" />
+                <MenuItem fx:id="menuItem51" mnemonicParsing="false" onAction="#sárgarépa" text="Sárgarépa" />
+                <MenuItem fx:id="menuItem12" mnemonicParsing="false" onAction="#retek" text="Retek" />
+                <MenuItem fx:id="menuItem22" mnemonicParsing="false" onAction="#paprika" text="Paprika" />
+                <MenuItem fx:id="menuItem32" mnemonicParsing="false" onAction="#paradicsom" text="Paradicsom" />
+                <MenuItem fx:id="menuItem42" mnemonicParsing="false" onAction="#vöröshagyma" text="Vöröshagyma" />
+                <MenuItem fx:id="menuItem52" mnemonicParsing="false" onAction="#borsó" text="Borsó" />
+                <MenuItem fx:id="menuItem13" mnemonicParsing="false" onAction="#alma" text="Alma" />
+                <MenuItem fx:id="menuItem23" mnemonicParsing="false" onAction="#körte" text="Körte" />
+                <MenuItem fx:id="menuItem33" mnemonicParsing="false" onAction="#cseresznye" text="Cseresznye" />
+                <MenuItem fx:id="menuItem43" mnemonicParsing="false" onAction="#meggy" text="Meggy" />
+                <MenuItem fx:id="menuItem53" mnemonicParsing="false" onAction="#szilva" text="Szilva" />
+                <MenuItem fx:id="menuItem14" mnemonicParsing="false" onAction="#őszibarack" text="Őszibarack" />
+                <MenuItem fx:id="menuItem24" mnemonicParsing="false" onAction="#dió" text="Dió" />
+                <MenuItem fx:id="menuItem34" mnemonicParsing="false" onAction="#málna" text="Málna" />
+                <MenuItem fx:id="menuItem44" mnemonicParsing="false" onAction="#eper" text="Eper" />
+                <MenuItem fx:id="menuItem54" mnemonicParsing="false" onAction="#szeder" text="Szeder" />
+            </items>
+        </MenuButton>
+        <Label fx:id="errorMessage" layoutX="87.0" layoutY="478.0" textFill="WHITE">
+            <font>
+                <Font size="24.0" />
+            </font>
+        </Label>
+        <MenuButton layoutX="199.0" layoutY="240.0" mnemonicParsing="false" text="Szerkesztés">
+            <items>
+                <MenuItem fx:id="addMenuItem" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
+                <MenuItem fx:id="informationMenuItem" mnemonicParsing="false" onAction="#handleInformation" text="Information" />
+                <MenuItem fx:id="deleteaddMenuItem" mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
+            </items>
+        </MenuButton>
+        <Button fx:id="buttonSave" layoutX="204.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSave" text="Mentés" />
+        <Pane layoutX="1346.0" layoutY="63.0" prefHeight="669.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-color: black;" />
+        <Circle fill="YELLOWGREEN" layoutX="1384.0" layoutY="93.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="CORNSILK" layoutX="1384.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="BURLYWOOD" layoutX="1384.0" layoutY="145.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="CYAN" layoutX="1384.0" layoutY="171.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="YELLOW" layoutX="1384.0" layoutY="197.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Label fx:id="test" layoutX="1409.0" layoutY="85.0" text="Búza">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="111.0" text="Kukorica">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="137.0" text="Burgonya">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="163.0" text="Cukorrépa">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="188.0" text="Napraforgó">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Circle fill="DARKSLATEGREY" layoutX="1384.0" layoutY="223.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="DARKSEAGREEN" layoutX="1384.0" layoutY="249.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="LIGHTGREEN" layoutX="1384.0" layoutY="274.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="GREEN" layoutX="1384.0" layoutY="299.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="ORANGE" layoutX="1384.0" layoutY="324.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="CRIMSON" layoutX="1384.0" layoutY="350.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="DARKKHAKI" layoutX="1384.0" layoutY="376.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="TOMATO" layoutX="1385.0" layoutY="401.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="FUCHSIA" layoutX="1385.0" layoutY="426.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="HOTPINK" layoutX="1385.0" layoutY="451.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="MEDIUMSLATEBLUE" layoutX="1385.0" layoutY="477.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="PINK" layoutX="1385.0" layoutY="503.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="SALMON" layoutX="1385.0" layoutY="528.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="PURPLE" layoutX="1385.0" layoutY="554.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="BLACK" layoutX="1385.0" layoutY="580.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="CADETBLUE" layoutX="1385.0" layoutY="606.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="KHAKI" layoutX="1385.0" layoutY="631.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="VIOLET" layoutX="1386.0" layoutY="656.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="OLIVE" layoutX="1386.0" layoutY="681.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Circle fill="NAVY" layoutX="1386.0" layoutY="707.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
+        <Label layoutX="1409.0" layoutY="215.0" text="Fejes káposzta">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="241.0" text="Karalábé">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1408.0" layoutY="266.0" text="Uborka">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="291.0" text="Petrezselyem">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="316.0" text="Sárgarépa">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="342.0" text="Retek">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1408.0" layoutY="368.0" text="Paprika">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1409.0" layoutY="395.0" text="Paradicsom">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1410.0" layoutY="419.0" text="Vöröshagyma">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1410.0" layoutY="442.0" text="Borsó">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1411.0" layoutY="469.0" text="Alma">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1410.0" layoutY="495.0" text="Körte">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1410.0" layoutY="522.0" text="Cseresznye">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1411.0" layoutY="546.0" text="Meggy">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1412.0" layoutY="569.0" text="Őszibarack">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1412.0" layoutY="596.0" text="Dió">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1412.0" layoutY="622.0" text="Szilva">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1412.0" layoutY="648.0" text="Málna">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1412.0" layoutY="671.0" text="Eper">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+        <Label layoutX="1413.0" layoutY="698.0" text="Szeder">
+            <font>
+                <Font name="System Bold" size="12.0" />
+            </font>
+        </Label>
+    </children>
 </AnchorPane>

@@ -77,7 +77,7 @@ public class CalendarController implements Initializable {
                         try {
                             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Calendar.fxml"));
                             Parent root1 = loader.load();
-                            stage.setTitle("Jobs");
+                            stage.setTitle("Feladatok");
                             Scene scene1 = new Scene(root1);
                             stage.setScene(scene1);
                             stage.show();
@@ -91,7 +91,7 @@ public class CalendarController implements Initializable {
         });
         root.setTop(popupContent);
         stage.setScene(scene);
-        stage.setTitle("Calendar");
+        stage.setTitle("Naptár");
         stage.show();
 
     }
@@ -100,12 +100,12 @@ public class CalendarController implements Initializable {
     private void handleAdd(ActionEvent event) {
         if (textArea.getText().isEmpty()) {
             errorLabel.setText("");
-            errorLabel1.setText("Type a job!");
+            errorLabel1.setText("Írjon be egy feladatot!");
             errorLabel1.setTextFill(Color.RED);
 
         } else if (textArea.getText().length() > 100) {
             errorLabel1.setText("");
-            errorLabel.setText("Maximum 100 charachters!");
+            errorLabel.setText("Maximum 100 karakter!");
             errorLabel.setTextFill(Color.RED);
 
         } else {
@@ -131,17 +131,17 @@ public class CalendarController implements Initializable {
     @FXML
     private void handleReset(ActionEvent event) {
         jobDrb.deleteJobs(HomeController.getDates());
-        comment.setText("You haven't got any jobs today.");
+        comment.setText("Nincs egyetlen feladat sem.");
     }
 
     @Override
     public void initialize(URL url, ResourceBundle rb
     ) {
         // TODO
-        dateLabel.setText("Date: " + HomeController.getDates());
+        dateLabel.setText("Dátum: " + HomeController.getDates());
         String com = "";
         if (jobDrb.getJobs(HomeController.getDates()).isEmpty()) {
-            comment.setText("You haven't got any jobs today.");
+            comment.setText("Nincs egyetlen feladat sem.");
         } else {
             for (String var : jobDrb.getJobs(HomeController.getDates())) {
                 com += var;

@@ -15,7 +15,6 @@ public class Plants {
     private PlantingAndPicking planting;
     private String[] care;
     private PlantingAndPicking picking;
-    private Produce produce;
 
     public Soils[] getSoil() {
         return soil;
@@ -31,10 +30,6 @@ public class Plants {
 
     public PlantingAndPicking getPicking() {
         return picking;
-    }
-
-    public Produce getProduce() {
-        return produce;
     }
 
     public void setSoil(Soils[] soil) {
@@ -53,17 +48,13 @@ public class Plants {
         this.picking = picking;
     }
 
-    public void setProduce(Produce produce) {
-        this.produce = produce;
-    }
 
-    public Plants(Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking, Produce produce) {
+    public Plants(Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking) {
         super();
         this.soil = soil;
         this.planting = planting;
         this.care = care;
         this.picking = picking;
-        this.produce = produce;
     }
     
     

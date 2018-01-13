@@ -39,9 +39,9 @@ public class NewStageController implements Initializable {
         try {
 
             if (fieldWidth.getText().equals("") || fieldHeigth.getText().equals("")) {
-                labelErrorMessage.setText("Enter both values!");
-            } else if (Integer.parseInt(fieldWidth.getText()) > 200 || Integer.parseInt(fieldHeigth.getText()) > 200) {
-                labelErrorMessage.setText("Maximum values are 200!");
+                labelErrorMessage.setText("Írja be mindkét értéket!");
+            } else if (Integer.parseInt(fieldWidth.getText()) > 180 || Integer.parseInt(fieldHeigth.getText()) > 180) {
+                labelErrorMessage.setText("Maximum érték: 180!");
             } else {
 
                 ((Node) (event.getSource())).getScene().getWindow().hide();
@@ -51,7 +51,7 @@ public class NewStageController implements Initializable {
                 EditorController.mapDrb.addSize(Integer.parseInt(fieldWidth.getText()), Integer.parseInt(fieldHeigth.getText()));
             }
         } catch (NumberFormatException nfe) {
-            labelErrorMessage.setText("Please, enter integer values!");
+            labelErrorMessage.setText("Írjon be valós egészszámot!");
         }
 
     }

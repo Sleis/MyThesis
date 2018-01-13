@@ -22,6 +22,8 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -37,6 +39,9 @@ import model.Map.TheMap;
  * @author ivany
  */
 public class EditorController implements Initializable {
+
+    @FXML
+    private Label test;
 
     @FXML
     private Button buttonBack;
@@ -62,6 +67,7 @@ public class EditorController implements Initializable {
     @FXML
     private Label errorMessage;
 
+    static CellType typeOfPlant;
     static MapDerby mapDrb = new MapDerby();
 
     Cell[][] cells;
@@ -380,9 +386,9 @@ public class EditorController implements Initializable {
         switch (edit) {
             case 0:
                 if (maps.doOverlapOneAnother(x, y)) {
-                    errorMessage.setText("You are covering another!");
+                    errorMessage.setText("Másikra nem lehet rakni!");
                 } else if (maps.doTheAreaGoOut(x, y)) {
-                    errorMessage.setText("You went out of the area!");
+                    errorMessage.setText("Kimentél a területről!");
                 } else {
                     switch (ct) {
                         case BÚZA:
@@ -473,81 +479,106 @@ public class EditorController implements Initializable {
                     switch (maps.getCell()[x][y].getCelltype()) {
                         case BÚZA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ArableCropsInformation.fxml"));
+                            typeOfPlant = CellType.BÚZA;
                             break;
                         case KUKORICA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ArableCropsInformation.fxml"));
+                            typeOfPlant = CellType.KUKORICA;
                             break;
                         case BURGONYA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ArableCropsInformation.fxml"));
+                            typeOfPlant = CellType.BURGONYA;
                             break;
                         case CUKORRÉPA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ArableCropsInformation.fxml"));
+                            typeOfPlant = CellType.CUKORRÉPA;
                             break;
                         case NAPRAFORGÓ:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ArableCropsInformation.fxml"));
+                            typeOfPlant = CellType.NAPRAFORGÓ;
                             break;
                         case FEJESKÁPOSZTA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.FEJESKÁPOSZTA;
                             break;
                         case PETREZSELYEM:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.PETREZSELYEM;
                             break;
                         case KARALÁBÉ:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.KARALÁBÉ;
                             break;
                         case UBORKA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.UBORKA;
                             break;
                         case SÁRGARÉPA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.SÁRGARÉPA;
                             break;
                         case RETEK:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.RETEK;
                             break;
                         case PAPRIKA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.PAPRIKA;
                             break;
                         case PARADICSOM:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.PARADICSOM;
                             break;
                         case VÖRÖSHAGYMA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.VÖRÖSHAGYMA;
                             break;
                         case BORSÓ:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/VegetablesInformation.fxml"));
+                            typeOfPlant = CellType.BORSÓ;
                             break;
                         case ALMA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.ALMA;
                             break;
                         case KÖRTE:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.KÖRTE;
                             break;
                         case ŐSZIBARACK:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.ŐSZIBARACK;
                             break;
                         case SZILVA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.SZILVA;
                             break;
                         case MEGGY:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.MEGGY;
                             break;
                         case CSERESZNYE:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.CSERESZNYE;
                             break;
                         case DIÓ:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsTreeInformation.fxml"));
+                            typeOfPlant = CellType.DIÓ;
                             break;
                         case MÁLNA:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsBushInformation.fxml"));
+                            typeOfPlant = CellType.MÁLNA;
                             break;
                         case EPER:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsBushInformation.fxml"));
+                            typeOfPlant = CellType.EPER;
                             break;
                         case SZEDER:
                             fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/FruitsBushInformation.fxml"));
+                            typeOfPlant = CellType.SZEDER;
                             break;
                         default:
-                            fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/ArableCropsInformation.fxml"));
+                            fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
                     }
                     Parent root = (Parent) fxmlLoader.load();
                     Stage stage = new Stage();
@@ -616,13 +647,13 @@ public class EditorController implements Initializable {
                     case FEJESKÁPOSZTA:
                         boardGraphics.setFill(Color.DARKSLATEGREY);
                         break;
-                    case PETREZSELYEM:
+                    case KARALÁBÉ:
                         boardGraphics.setFill(Color.DARKSEAGREEN);
                         break;
-                    case KARALÁBÉ:
+                    case UBORKA:
                         boardGraphics.setFill(Color.LIGHTGREEN);
                         break;
-                    case UBORKA:
+                    case PETREZSELYEM:
                         boardGraphics.setFill(Color.GREEN);
                         break;
                     case SÁRGARÉPA:
@@ -649,19 +680,19 @@ public class EditorController implements Initializable {
                     case KÖRTE:
                         boardGraphics.setFill(Color.PINK);
                         break;
-                    case ŐSZIBARACK:
+                    case CSERESZNYE:
                         boardGraphics.setFill(Color.SALMON);
                         break;
-                    case SZILVA:
+                    case MEGGY:
                         boardGraphics.setFill(Color.PURPLE);
                         break;
-                    case MEGGY:
+                    case ŐSZIBARACK:
                         boardGraphics.setFill(Color.BLACK);
                         break;
-                    case CSERESZNYE:
+                    case DIÓ:
                         boardGraphics.setFill(Color.CADETBLUE);
                         break;
-                    case DIÓ:
+                    case SZILVA:
                         boardGraphics.setFill(Color.KHAKI);
                         break;
                     case MÁLNA:
@@ -714,10 +745,10 @@ public class EditorController implements Initializable {
             for (int j = 0; j < maps.getHeigth(); j++) {
                 cells[i][j] = new Cell(CellType.DIRT, 0, 0);
             }
-        }    
-        maps.setHeightRate(8);
-        maps.setWidthRate(8);
-        
+        }
+        maps.setHeightRate(5);
+        maps.setWidthRate(5);
+
         maps.setArea(1, 1);
 
         board.setWidth(maps.getWidth() * maps.getWidthRate());
