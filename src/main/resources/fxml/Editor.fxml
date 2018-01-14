@@ -12,11 +12,14 @@
 
 <AnchorPane id="AnchorPane" fx:id="pane" prefHeight="900.0" prefWidth="1600.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.agriculture.EditorController">
     <children>
-        <Button fx:id="buttonBack" layoutX="204.0" layoutY="425.0" mnemonicParsing="false" onAction="#handleBack" text="Vissza" />
-        <Canvas fx:id="board" height="800.0" layoutX="406.0" layoutY="42.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
-        <Button fx:id="buttonReset" layoutX="202.0" layoutY="330.0" mnemonicParsing="false" onAction="#handleReset" text="Törlés" />
-        <Button fx:id="buttonNew" layoutX="205.0" layoutY="192.0" mnemonicParsing="false" onAction="#handleNew" text="Új" />
-        <MenuButton fx:id="buttonMenu" layoutX="198.0" layoutY="284.0" mnemonicParsing="false" text="Típus">
+        <Button fx:id="buttonBack" layoutX="121.0" layoutY="732.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="40.0" prefWidth="150.0" text="Vissza">
+         <font>
+            <Font size="20.0" />
+         </font></Button>
+        <Canvas fx:id="board" height="800.0" layoutX="400.0" layoutY="28.0" onMouseClicked="#handleClick" onMouseExited="#handleExited" onMouseMoved="#handleMoved" width="800.0" />
+        <Button fx:id="buttonReset" layoutX="146.0" layoutY="321.0" mnemonicParsing="false" onAction="#handleReset" prefHeight="20.0" prefWidth="100.0" text="Törlés" />
+        <Button fx:id="buttonNew" layoutX="146.0" layoutY="193.0" mnemonicParsing="false" onAction="#handleNew" prefHeight="20.0" prefWidth="100.0" text="Új" />
+        <MenuButton fx:id="buttonMenu" alignment="CENTER" layoutX="146.0" layoutY="279.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Típus">
             <items>
                 <MenuItem fx:id="menuItem1" mnemonicParsing="false" onAction="#búza" text="Búza" />
                 <MenuItem fx:id="menuItem2" mnemonicParsing="false" onAction="#kukorica" text="Kukorica" />
@@ -50,14 +53,14 @@
                 <Font size="24.0" />
             </font>
         </Label>
-        <MenuButton layoutX="199.0" layoutY="240.0" mnemonicParsing="false" text="Szerkesztés">
+        <MenuButton alignment="CENTER" layoutX="146.0" layoutY="237.0" mnemonicParsing="false" prefHeight="20.0" prefWidth="100.0" text="Szerkesztés">
             <items>
                 <MenuItem fx:id="addMenuItem" mnemonicParsing="false" onAction="#handleAdd" text="Add" />
                 <MenuItem fx:id="informationMenuItem" mnemonicParsing="false" onAction="#handleInformation" text="Information" />
                 <MenuItem fx:id="deleteaddMenuItem" mnemonicParsing="false" onAction="#handleDelete" text="Delete" />
             </items>
         </MenuButton>
-        <Button fx:id="buttonSave" layoutX="204.0" layoutY="378.0" mnemonicParsing="false" onAction="#handleSave" text="Mentés" />
+        <Button fx:id="buttonSave" layoutX="146.0" layoutY="364.0" mnemonicParsing="false" onAction="#handleSave" prefHeight="20.0" prefWidth="100.0" text="Mentés" />
         <Pane layoutX="1346.0" layoutY="63.0" prefHeight="669.0" prefWidth="166.0" style="-fx-background-color: white; -fx-border-color: black;" />
         <Circle fill="YELLOWGREEN" layoutX="1384.0" layoutY="93.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
         <Circle fill="CORNSILK" layoutX="1384.0" layoutY="119.0" radius="8.0" stroke="BLACK" strokeType="INSIDE" />
