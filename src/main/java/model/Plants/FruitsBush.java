@@ -30,8 +30,8 @@ public class FruitsBush extends Fruits {
         this.cultivationMethod = cultivationMethod;
     }
 
-    public FruitsBush(Area area, String cultivationMethod, int lifetime, String[][] diseaseAndProtection, Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking, Produce produce) {
-        super(lifetime, diseaseAndProtection, soil, planting, care, picking, produce);
+    public FruitsBush(Area area, String cultivationMethod, int lifetime, Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking, Produce produce) {
+        super(lifetime, soil, planting, care, picking, produce);
         this.area = area;
         this.cultivationMethod = cultivationMethod;
     }

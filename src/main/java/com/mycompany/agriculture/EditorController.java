@@ -475,6 +475,7 @@ public class EditorController implements Initializable {
                 break;
             case 1:
                 try {
+                    boolean dirt = false;
                     FXMLLoader fxmlLoader;
                     switch (maps.getCell()[x][y].getCelltype()) {
                         case BÚZA:
@@ -578,14 +579,18 @@ public class EditorController implements Initializable {
                             typeOfPlant = CellType.SZEDER;
                             break;
                         default:
-                            fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
+                            fxmlLoader = new FXMLLoader(getClass().getResource(""));
+                            dirt = true;
+
                     }
-                    Parent root = (Parent) fxmlLoader.load();
-                    Stage stage = new Stage();
-                    stage.initModality(Modality.WINDOW_MODAL);
-                    stage.initOwner(pane.getScene().getWindow());
-                    stage.setScene(new Scene(root));
-                    stage.show();
+                    if (!dirt) {
+                        Parent root = (Parent) fxmlLoader.load();
+                        Stage stage = new Stage();
+                        stage.initModality(Modality.WINDOW_MODAL);
+                        stage.initOwner(pane.getScene().getWindow());
+                        stage.setScene(new Scene(root));
+                        stage.show();
+                    }
                 } catch (IOException e1) {
                     System.out.println(e1);
                 }

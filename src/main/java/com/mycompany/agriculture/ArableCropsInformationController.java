@@ -137,26 +137,6 @@ public class ArableCropsInformationController implements Initializable {
                 arableCropsSpacing.setText(plants.getMinRowSpacing() + "cm");
                 arableCropsSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 break;
-            case ALMA:
-                break;
-            case KÖRTE:
-                break;
-            case ŐSZIBARACK:
-                break;
-            case SZILVA:
-                break;
-            case MEGGY:
-                break;
-            case CSERESZNYE:
-                break;
-            case DIÓ:
-                break;
-            case MÁLNA:
-                break;
-            case EPER:
-                break;
-            case SZEDER:
-                break;
         }
     }
 

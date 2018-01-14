@@ -37,9 +37,6 @@ public class HomeController implements Initializable {
     private Button editor;
 
     @FXML
-    private Button information;
-
-    @FXML
     private Button exit;
 
     @FXML
@@ -160,17 +157,6 @@ public class HomeController implements Initializable {
         }
     }
 
-    @FXML
-    private void handleInformation(ActionEvent event) throws IOException {
-        Stage stage;
-        Parent root;
-        stage = (Stage) information.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
-        root = loader.load();
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
 
     @FXML
     private void handleExit(ActionEvent event) {

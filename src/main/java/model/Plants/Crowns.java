@@ -15,5 +15,5 @@ public enum Crowns {
     KARCSÚORSÓ,
     KOMBINÁLTSUDARAS,
     KATLAN,
-    SZÓRTÁLLÁSÓKOMBINÁLT
+    SZÓRTÁLLÁSÚKOMBINÁLT
 }
