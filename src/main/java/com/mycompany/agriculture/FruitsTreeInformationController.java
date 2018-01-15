@@ -5,6 +5,7 @@ package com.mycompany.agriculture;
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
@@ -12,17 +13,21 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.Plants.Area;
 import model.Plants.Crowns;
 import model.Plants.FruitsTree;
-import model.Plants.Needs;
 import model.Plants.PlantingAndPicking;
 import model.Plants.Produce;
 import model.Plants.Soils;
-import model.Plants.Vegetables;
 
 /**
  * FXML Controller class
@@ -60,6 +65,21 @@ public class FruitsTreeInformationController implements Initializable {
 
     @FXML
     private Label fruitsTreeProduce;
+
+    @FXML
+    private Button buttonBack;
+
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
+        stage = (Stage) buttonBack.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
+        root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {

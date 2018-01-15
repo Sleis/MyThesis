@@ -5,6 +5,7 @@
  */
 package com.mycompany.agriculture;
 
+import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
 import java.time.Month;
@@ -12,9 +13,15 @@ import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Locale;
 import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.stage.Stage;
 import model.Plants.Area;
 import model.Plants.FruitsBush;
 import model.Plants.PlantingAndPicking;
@@ -57,6 +64,21 @@ public class FruitsBushInformationController implements Initializable {
 
     @FXML
     private Label fruitsBushProduce;
+
+    @FXML
+    private Button buttonBack;
+
+    @FXML
+    private void handleBack(ActionEvent event) throws IOException {
+        Stage stage;
+        Parent root;
+        stage = (Stage) buttonBack.getScene().getWindow();
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
+        root = loader.load();
+        Scene scene = new Scene(root);
+        stage.setScene(scene);
+        stage.show();
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -107,7 +129,7 @@ public class FruitsBushInformationController implements Initializable {
                 plants = new FruitsBush(new Area(30, 15), "sövény", 10,
                         new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.BARNAERDŐTALAJ},
                         new PlantingAndPicking(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
-                        new String[]{"öntözés","vesszővágás"},
+                        new String[]{"öntözés", "vesszővágás"},
                         new PlantingAndPicking(LocalDate.of(2018, Month.AUGUST, 1), LocalDate.of(2018, Month.AUGUST, 30)),
                         new Produce(3, 4));
                 fruitsBushName.setText("szeder");

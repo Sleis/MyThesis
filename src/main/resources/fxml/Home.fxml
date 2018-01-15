@@ -17,7 +17,7 @@
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
-      <Button fx:id="exit" layoutX="650.0" layoutY="700.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="50.0" prefWidth="300.0" text="Kilépés">
+      <Button fx:id="exit" layoutX="650.0" layoutY="650.0" mnemonicParsing="false" onAction="#handleExit" prefHeight="50.0" prefWidth="300.0" text="Kilépés">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
@@ -26,7 +26,7 @@
             <Font size="72.0" />
          </font>
       </Label>
-      <Button fx:id="calendar" layoutX="650.0" layoutY="400.0" mnemonicParsing="false" onAction="#handleCalendar" prefHeight="50.0" prefWidth="300.0" text="Naptár">
+      <Button fx:id="calendar" layoutX="650.0" layoutY="450.0" mnemonicParsing="false" onAction="#handleCalendar" prefHeight="50.0" prefWidth="300.0" text="Naptár">
          <font>
             <Font name="System Bold" size="24.0" />
          </font></Button>
@@ -34,5 +34,10 @@
          <font>
             <Font size="37.0" />
          </font></Label>
+      <Button fx:id="information" layoutX="650.0" layoutY="350.0" mnemonicParsing="false" onAction="#handleInformation" prefHeight="50.0" prefWidth="300.0" text="Információ">
+         <font>
+            <Font name="System Bold" size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

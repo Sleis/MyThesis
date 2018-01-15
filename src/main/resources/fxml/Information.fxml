@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="500.0" prefWidth="500.0" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mycompany.agriculture.InformationController">
+   <children>
+      <Label layoutX="35.0" layoutY="100.0" text="Gyümölcsök:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="information" layoutX="165.0" layoutY="23.0" text="Információ">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="230.0" text="Zöldségek:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="35.0" layoutY="360.0" text="Ipari növények:">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <Label layoutX="220.0" layoutY="110.0" onMouseClicked="#alma" text="Alma" />
+      <Label layoutX="220.0" layoutY="136.0" onMouseClicked="#körte" text="Körte" />
+      <Label layoutX="220.0" layoutY="162.0" onMouseClicked="#meggy" text="Meggy" />
+      <Label layoutX="220.0" layoutY="188.0" onMouseClicked="#cseresznye" text="Cseresznye" />
+      <Label layoutX="220.0" layoutY="214.0" onMouseClicked="#szilva" text="Szilva" />
+      <Label layoutX="366.0" layoutY="110.0" onMouseClicked="#öszibarack" text="Őszibarack" />
+      <Label layoutX="366.0" layoutY="136.0" onMouseClicked="#dio" text="Dió" />
+      <Label layoutX="366.0" layoutY="162.0" onMouseClicked="#malna" text="Málna" />
+      <Label layoutX="366.0" layoutY="214.0" onMouseClicked="#szeder" text="Szeder" />
+      <Label layoutX="366.0" layoutY="188.0" onMouseClicked="#eper" text="Eper" />
+      <Label layoutX="220.0" layoutY="240.0" onMouseClicked="#fejeskaposzta" text="Fejes káposzta" />
+      <Label layoutX="220.0" layoutY="266.0" onMouseClicked="#karalabe" text="Karalábé" />
+      <Label layoutX="220.0" layoutY="292.0" onMouseClicked="#uborka" text="Uborka" />
+      <Label layoutX="220.0" layoutY="318.0" onMouseClicked="#petrezselyem" text="Petrezselyem" />
+      <Label layoutX="220.0" layoutY="344.0" onMouseClicked="#sargarepa" text="Sárgarépa" />
+      <Label layoutX="366.0" layoutY="240.0" onMouseClicked="#retek" text="Retek" />
+      <Label layoutX="366.0" layoutY="266.0" onMouseClicked="#paprika" text="Paprika" />
+      <Label layoutX="366.0" layoutY="292.0" onMouseClicked="#paradicsom" text="Paradicsom" />
+      <Label layoutX="366.0" layoutY="344.0" onMouseClicked="#borso" text="Borsó" />
+      <Label layoutX="366.0" layoutY="318.0" onMouseClicked="#vöröshagyma" text="Vöröshagyma" />
+      <Label layoutX="220.0" layoutY="370.0" onMouseClicked="#oszibuza" text="Őszi búza" />
+      <Label layoutX="220.0" layoutY="396.0" onMouseClicked="#kukorica" text="Kukorica" />
+      <Label layoutX="220.0" layoutY="422.0" onMouseClicked="#burgonya" text="Burgonya" />
+      <Label layoutX="366.0" layoutY="370.0" onMouseClicked="#cukorrepa" text="Cukorrépa" />
+      <Label layoutX="366.0" layoutY="396.0" onMouseClicked="#napraforgo" text="Napraforgó" />
+   </children>
+</AnchorPane>

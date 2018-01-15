@@ -41,6 +41,9 @@ public class HomeController implements Initializable {
 
     @FXML
     private Button calendar;
+    
+    @FXML
+    private Button information;
 
     @FXML
     private Pane pane;
@@ -157,6 +160,22 @@ public class HomeController implements Initializable {
         }
     }
 
+    @FXML
+    private void handleInformation(ActionEvent event) {
+        try {
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/fxml/Information.fxml"));
+            Parent root = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(pane.getScene().getWindow());
+            stage.resizableProperty().setValue(Boolean.FALSE);
+            stage.setScene(new Scene(root));
+            stage.show();
+
+        } catch (IOException e) {
+            System.out.println(e);
+        }
+    }
 
     @FXML
     private void handleExit(ActionEvent event) {
