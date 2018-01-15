@@ -9,7 +9,7 @@ package model.Plants;
  *
  * @author ivany
  */
-public class ArableCrops extends Plants {
+public class IndustrialCrops extends Plants {
 
     private String[] forecropes;
     private int minRowSpacing;
@@ -39,7 +39,7 @@ public class ArableCrops extends Plants {
         this.plantingDepth = plantingDepth;
     }
 
-    public ArableCrops(String[] forecropes, int minRowSpacing, int plantingDepth, Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking) {
+    public IndustrialCrops(String[] forecropes, int minRowSpacing, int plantingDepth, Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking) {
         super(soil, planting, care, picking);
         this.forecropes = forecropes;
         this.minRowSpacing = minRowSpacing;

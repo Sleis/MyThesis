@@ -22,7 +22,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.stage.Stage;
-import model.Plants.ArableCrops;
+import model.Plants.IndustrialCrops;
 import model.Plants.PlantingAndPicking;
 import model.Plants.Soils;
 
@@ -80,10 +80,10 @@ public class ArableCropsInformationController implements Initializable {
         // TODO
         Locale locale = new Locale("hu", "HU");
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM", locale);
-        ArableCrops plants;
+        IndustrialCrops plants;
         switch (EditorController.typeOfPlant) {
             case BÚZA:
-                plants = new ArableCrops(new String[]{"minden augusztus közepéig betakarított növény"}, 12, 4,
+                plants = new IndustrialCrops(new String[]{"minden augusztus közepéig betakarított növény"}, 12, 4,
                         new Soils[]{Soils.CSERNOZJOM, Soils.BARNAERDŐTALAJ, Soils.RÉTITALAJ}, new PlantingAndPicking(LocalDate.of(2018, Month.OCTOBER, 15),
                                 LocalDate.of(2018, Month.OCTOBER, 25)), new String[]{"felfagyáskor hengerezés", "vegyszeres gyomírtás"},
                         new PlantingAndPicking(LocalDate.of(2018, Month.JULY, 1), LocalDate.of(2018, Month.JULY, 31)));
@@ -99,7 +99,7 @@ public class ArableCropsInformationController implements Initializable {
                 arableCropsSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 break;
             case KUKORICA:
-                plants = new ArableCrops(new String[]{"közömbös"}, 70, 5,
+                plants = new IndustrialCrops(new String[]{"közömbös"}, 70, 5,
                         new Soils[]{Soils.CSERNOZJOM, Soils.BARNAERDŐTALAJ, Soils.RÉTITALAJ, Soils.ÖNTÉSÉSLEJTŐHORDALÉKTALAJ}, new PlantingAndPicking(LocalDate.of(2018, Month.APRIL, 15),
                                 LocalDate.of(2018, Month.MAY, 15)), new String[]{"vegyszeres gyomírtás"},
                         new PlantingAndPicking(LocalDate.of(2018, Month.AUGUST, 31), LocalDate.of(2018, Month.OCTOBER, 31)));
@@ -115,7 +115,7 @@ public class ArableCropsInformationController implements Initializable {
                 arableCropsSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 break;
             case BURGONYA:
-                plants = new ArableCrops(new String[]{"kalászosok", "fehérmustár", "olajretek"}, 70, 2,
+                plants = new IndustrialCrops(new String[]{"kalászosok", "fehérmustár", "olajretek"}, 70, 2,
                         new Soils[]{Soils.LAZATALAJ, Soils.KÖZÉPKÖTÖTTTALAJ}, new PlantingAndPicking(LocalDate.of(2018, Month.APRIL, 5),
                                 LocalDate.of(2018, Month.APRIL, 25)), new String[]{"vegyszeres gyomírtás"},
                         new PlantingAndPicking(LocalDate.of(2018, Month.MAY, 15), LocalDate.of(2018, Month.JUNE, 30)));
@@ -131,7 +131,7 @@ public class ArableCropsInformationController implements Initializable {
                 arableCropsSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 break;
             case CUKORRÉPA:
-                plants = new ArableCrops(new String[]{"kalászosok", "rostlen", "silókukorica"}, 45, 2,
+                plants = new IndustrialCrops(new String[]{"kalászosok", "rostlen", "silókukorica"}, 45, 2,
                         new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ}, new PlantingAndPicking(LocalDate.of(2018, Month.MARCH, 15),
                                 LocalDate.of(2018, Month.APRIL, 10)), new String[]{"vegyszeres gyomírtás"},
                         new PlantingAndPicking(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.SEPTEMBER, 10)));
@@ -147,7 +147,7 @@ public class ArableCropsInformationController implements Initializable {
                 arableCropsSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 break;
             case NAPRAFORGÓ:
-                plants = new ArableCrops(new String[]{"őszi kalászosok", "tavaszi kalászosok"}, 70, 5,
+                plants = new IndustrialCrops(new String[]{"őszi kalászosok", "tavaszi kalászosok"}, 70, 5,
                         new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.LAZATALAJ}, new PlantingAndPicking(LocalDate.of(2018, Month.APRIL, 10),
                                 LocalDate.of(2018, Month.APRIL, 25)), new String[]{"vegyszeres gyomírtás"}, null);
                 arableCropsName.setText("Napraforgó");
