@@ -12,7 +12,7 @@ package model.Map;
 public class TheMap {
 
     private Cell[][] cell;
-    private int[] rate = new int[2];
+    private final int[] rate = new int[2];
     private int[] area = new int[2];
     private int width;
     private int heigth;
@@ -75,10 +75,6 @@ public class TheMap {
 
     public void setHeigth(int h) {
         this.heigth = h;
-    }
-
-    public boolean isEven(int a) {
-        return a % 2 != 0;
     }
 
     public int evenOrNotTheAreasValues() {

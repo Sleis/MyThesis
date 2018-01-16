@@ -38,5 +38,4 @@ DIÓ,
 MÁLNA,
 EPER,
 SZEDER
-
 }

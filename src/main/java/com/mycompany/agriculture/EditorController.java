@@ -22,8 +22,6 @@ import javafx.scene.canvas.Canvas;
 import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TableColumn;
-import javafx.scene.control.TableView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
@@ -267,8 +265,8 @@ public class EditorController implements Initializable {
     @FXML
     private void alma(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 3;
-        tmp[1] = 3;
+        tmp[0] = 6;
+        tmp[1] = 6;
         maps.setArea(tmp);
         ct = CellType.ALMA;
     }
@@ -276,8 +274,8 @@ public class EditorController implements Initializable {
     @FXML
     private void körte(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 1;
-        tmp[1] = 1;
+        tmp[0] = 6;
+        tmp[1] = 3;
         maps.setArea(tmp);
         ct = CellType.KÖRTE;
     }
@@ -285,8 +283,8 @@ public class EditorController implements Initializable {
     @FXML
     private void cseresznye(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 1;
-        tmp[1] = 1;
+        tmp[0] = 6;
+        tmp[1] = 4;
         maps.setArea(tmp);
         ct = CellType.CSERESZNYE;
     }
@@ -294,8 +292,8 @@ public class EditorController implements Initializable {
     @FXML
     private void meggy(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 1;
-        tmp[1] = 1;
+        tmp[0] = 6;
+        tmp[1] = 4;
         maps.setArea(tmp);
         ct = CellType.MEGGY;
     }
@@ -303,8 +301,8 @@ public class EditorController implements Initializable {
     @FXML
     private void szilva(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 1;
-        tmp[1] = 1;
+        tmp[0] = 6;
+        tmp[1] = 4;
         maps.setArea(tmp);
         ct = CellType.SZILVA;
     }
@@ -312,8 +310,8 @@ public class EditorController implements Initializable {
     @FXML
     private void őszibarack(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 1;
-        tmp[1] = 1;
+        tmp[0] = 4;
+        tmp[1] = 4;
         maps.setArea(tmp);
         ct = CellType.ŐSZIBARACK;
     }
@@ -321,8 +319,8 @@ public class EditorController implements Initializable {
     @FXML
     private void dió(ActionEvent event) {
         int[] tmp = new int[2];
-        tmp[0] = 1;
-        tmp[1] = 1;
+        tmp[0] = 7;
+        tmp[1] = 7;
         maps.setArea(tmp);
         ct = CellType.DIÓ;
     }
@@ -734,7 +732,6 @@ public class EditorController implements Initializable {
 
         mapDrb.createMapsSizeTable();
         edit = 0;
-        IDs = 1;
         maps = new TheMap();
         try {
             ResultSet size = mapDrb.getSize();
@@ -753,8 +750,21 @@ public class EditorController implements Initializable {
         }
         maps.setHeightRate(5);
         maps.setWidthRate(5);
-
         maps.setArea(1, 1);
+
+        try {
+            ResultSet ids = mapDrb.getMapID();
+            IDs = 0;
+            while (ids.next()) {
+                if (Integer.parseInt(ids.getString("ID")) > IDs) {
+                    System.out.println("while");
+                    IDs = Integer.parseInt(ids.getString("ID"));
+                }
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EditorController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(IDs);
 
         board.setWidth(maps.getWidth() * maps.getWidthRate());
         board.setHeight(maps.getHeigth() * maps.getHeigthRate());

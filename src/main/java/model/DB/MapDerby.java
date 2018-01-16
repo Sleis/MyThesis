@@ -107,6 +107,10 @@ public class MapDerby {
     public ResultSet getMap() throws SQLException {
         return stmt.executeQuery("SELECT * FROM map");
     }
+    
+    public ResultSet getMapID() throws SQLException {
+        return stmt.executeQuery("SELECT id FROM map");
+    }
 
      public ResultSet getSize() throws SQLException {
         return stmt.executeQuery("SELECT * FROM size");
