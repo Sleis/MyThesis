@@ -9,7 +9,7 @@ package model.Plants;
  *
  * @author ivany
  */
-public enum Soils {
+public enum Soil {
     CSERNOZJOM,
     BARNAERDŐTALAJ,
     RÉTITALAJ,

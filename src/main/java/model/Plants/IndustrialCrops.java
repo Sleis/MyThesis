@@ -39,7 +39,7 @@ public class IndustrialCrops extends Plants {
         this.plantingDepth = plantingDepth;
     }
 
-    public IndustrialCrops(String name, String[] forecropes, int minRowSpacing, int plantingDepth, Soils[] soil, Interval planting, String[] care, Interval picking) {
+    public IndustrialCrops(String name, String[] forecropes, int minRowSpacing, int plantingDepth, Soil[] soil, Interval planting, String[] care, Interval picking) {
         super(name, soil, planting, care, picking);
         this.forecropes = forecropes;
         this.minRowSpacing = minRowSpacing;

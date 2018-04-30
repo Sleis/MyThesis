@@ -26,7 +26,7 @@ import model.Plants.Area;
 import model.Plants.FruitsBush;
 import model.Plants.Interval;
 import model.Plants.Produce;
-import model.Plants.Soils;
+import model.Plants.Soil;
 
 /**
  * FXML Controller class
@@ -89,9 +89,9 @@ public class FruitsBushInformationController implements Initializable {
         switch (EditorController.typeOfPlant) {
             case MÁLNA:
                 plants = new FruitsBush("málna", new Area(100, 50), "sövény", 10,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
-                        new String[]{"vissazvágás", "metszés", "öntözés"},
+                        new String[]{"visszavágás", "metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.JUNE, 25), LocalDate.of(2018, Month.JULY, 30)),
                         new Produce(1, 2));
                 fruitsBushName.setText("málna");
@@ -103,12 +103,12 @@ public class FruitsBushInformationController implements Initializable {
                 fruitsBushSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsBushProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/futóméter/év");
                 fruitsBushCultivationMethod.setText(plants.getCultivationMethod());
-                fruitsBushArea.setText(plants.getArea().getHeigth() + "cm*" + plants.getArea().getWidth() + "cm");
+                fruitsBushArea.setText(plants.getArea().getHeight() + "cm*" + plants.getArea().getWidth() + "cm");
                 fruitsBushLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case EPER:
-                plants = new FruitsBush("eper", new Area(30, 15), "sövény", 5,
-                        new Soils[]{Soils.HOMOKTALAJ, Soils.BARNAERDŐTALAJ},
+                plants = new FruitsBush("eper", new Area(30, 15), "soros", 5,
+                        new Soil[]{Soil.HOMOKTALAJ, Soil.BARNAERDŐTALAJ},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"öntözés"},
                         new Interval(LocalDate.of(2018, Month.MAY, 25), LocalDate.of(2018, Month.JUNE, 30)),
@@ -122,12 +122,12 @@ public class FruitsBushInformationController implements Initializable {
                 fruitsBushSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsBushProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/m²");
                 fruitsBushCultivationMethod.setText(plants.getCultivationMethod());
-                fruitsBushArea.setText(plants.getArea().getHeigth() + "cm*" + plants.getArea().getWidth() + "cm");
+                fruitsBushArea.setText(plants.getArea().getHeight() + "cm*" + plants.getArea().getWidth() + "cm");
                 fruitsBushLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case SZEDER:
                 plants = new FruitsBush("szeder", new Area(30, 15), "sövény", 10,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.BARNAERDŐTALAJ},
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ, Soil.BARNAERDŐTALAJ},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"öntözés", "vesszővágás"},
                         new Interval(LocalDate.of(2018, Month.AUGUST, 1), LocalDate.of(2018, Month.AUGUST, 30)),
@@ -141,7 +141,7 @@ public class FruitsBushInformationController implements Initializable {
                 fruitsBushSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsBushProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/tő/év");
                 fruitsBushCultivationMethod.setText(plants.getCultivationMethod());
-                fruitsBushArea.setText(plants.getArea().getHeigth() + "cm*" + plants.getArea().getWidth() + "cm");
+                fruitsBushArea.setText(plants.getArea().getHeight() + "cm*" + plants.getArea().getWidth() + "cm");
                 fruitsBushLifeTime.setText(plants.getLifetime() + "év");
                 break;
         }

@@ -27,7 +27,7 @@ import model.Plants.Crowns;
 import model.Plants.FruitsTree;
 import model.Plants.Interval;
 import model.Plants.Produce;
-import model.Plants.Soils;
+import model.Plants.Soil;
 
 /**
  * FXML Controller class
@@ -91,7 +91,7 @@ public class FruitsTreeInformationController implements Initializable {
         switch (EditorController.typeOfPlant) {
             case ALMA:
                 plants = new FruitsTree("almafa", Crowns.SUDARAS, new Area(6, 6), 30,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.MAY, 25), LocalDate.of(2018, Month.SEPTEMBER, 30)),
@@ -105,12 +105,12 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case KÖRTE:
                 plants = new FruitsTree("körtefa", Crowns.SUDARAS, new Area(6, 3), 35,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.JULY, 25), LocalDate.of(2018, Month.OCTOBER, 5)),
@@ -124,12 +124,12 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case ŐSZIBARACK:
                 plants = new FruitsTree("őszibarackfa", Crowns.KATLAN, new Area(4, 4), 25,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.JULY, 20), LocalDate.of(2018, Month.SEPTEMBER, 20)),
@@ -143,12 +143,12 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case SZILVA:
                 plants = new FruitsTree("szilvafa", Crowns.SUDARAS, new Area(6, 4), 25,
-                        new Soils[]{Soils.LAZATALAJ},
+                        new Soil[]{Soil.LAZATALAJ},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.AUGUST, 15), LocalDate.of(2018, Month.SEPTEMBER, 30)),
@@ -162,12 +162,12 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case MEGGY:
                 plants = new FruitsTree("meggyfa", Crowns.SUDARAS, new Area(6, 4), 30,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.JUNE, 15), LocalDate.of(2018, Month.AUGUST, 5)),
@@ -181,12 +181,12 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case CSERESZNYE:
                 plants = new FruitsTree("cseresznyefa", Crowns.SUDARAS, new Area(6, 4), 40,
-                        new Soils[]{Soils.HOMOKTALAJ},
+                        new Soil[]{Soil.HOMOKTALAJ},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.JUNE, 1), LocalDate.of(2018, Month.JUNE, 30)),
@@ -200,12 +200,12 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
             case DIÓ:
                 plants = new FruitsTree("diófa", Crowns.SZÓRTÁLLÁSÚKOMBINÁLT, new Area(7, 7), 45,
-                        new Soils[]{Soils.LAZATALAJ},
+                        new Soil[]{Soil.LAZATALAJ},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.NOVEMBER, 30)),
                         new String[]{"metszés", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 25), LocalDate.of(2018, Month.OCTOBER, 10)),
@@ -219,7 +219,7 @@ public class FruitsTreeInformationController implements Initializable {
                 fruitsTreeSoil.setText(Arrays.toString(plants.getSoil()).toLowerCase().substring(1, Arrays.toString(plants.getSoil()).length() - 1));
                 fruitsTreeProduce.setText(plants.getProduce().getMin() + "-" + plants.getProduce().getMax() + "kg dióbél/fa/év");
                 fruitsTreeCrown.setText(plants.getCrown().toString().toLowerCase());
-                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeigth() + "m*" + plants.getCrownArea().getWidth() + "m");
+                fruitsTreeCrownArea.setText(plants.getCrownArea().getHeight() + "m*" + plants.getCrownArea().getWidth() + "m");
                 fruitsTreeLifeTime.setText(plants.getLifetime() + "év");
                 break;
         }

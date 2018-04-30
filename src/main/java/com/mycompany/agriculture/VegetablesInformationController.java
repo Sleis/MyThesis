@@ -25,7 +25,7 @@ import javafx.stage.Stage;
 import model.Plants.Needs;
 import model.Plants.Interval;
 import model.Plants.Produce;
-import model.Plants.Soils;
+import model.Plants.Soil;
 import model.Plants.Vegetables;
 
 /**
@@ -95,7 +95,7 @@ public class VegetablesInformationController implements Initializable {
         switch (EditorController.typeOfPlant) {
             case FEJESKÁPOSZTA:
                 plants = new Vegetables("Fejes káposzta", Needs.ALACSONY, Needs.MAGAS, Needs.KÖZEPES, new String[]{"közömbös"}, 40,
-                        new Soils[]{Soils.CSERNOZJOM, Soils.BARNAERDŐTALAJ},
+                        new Soil[]{Soil.CSERNOZJOM, Soil.BARNAERDŐTALAJ},
                         new Interval(LocalDate.of(2018, Month.APRIL, 1), LocalDate.of(2018, Month.JULY, 15)),
                         new String[]{"öntözés"}, null, new Produce(800, 1000));
                 vegetablesName.setText("Fejes káposzta");
@@ -113,7 +113,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case PETREZSELYEM:
                 plants = new Vegetables("Petrezselyem", Needs.ALACSONY, Needs.ALACSONY, Needs.ALACSONY, new String[]{"sárgarépa, pasztina, önmaguk"}, 20,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.LAZATALAJ},
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ, Soil.LAZATALAJ},
                         new Interval(LocalDate.of(2018, Month.FEBRUARY, 1), LocalDate.of(2018, Month.FEBRUARY, 28)),
                         new String[]{"öntözés", "gyomtalanítás"}, null, null);
                 vegetablesName.setText("Petrezselyem");
@@ -131,7 +131,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case KARALÁBÉ:
                 plants = new Vegetables("Karalábé", Needs.ALACSONY, Needs.MAGAS, Needs.MAGAS, new String[]{"burgonya", "borsó", "retek", "saláta"}, 25,
-                        new Soils[]{Soils.CSERNOZJOM, Soils.BARNAERDŐTALAJ},
+                        new Soil[]{Soil.CSERNOZJOM, Soil.BARNAERDŐTALAJ},
                         new Interval(LocalDate.of(2018, Month.JUNE, 15), LocalDate.of(2018, Month.JULY, 15)),
                         new String[]{"öntözés", "gyomtalanítás"},
                         null, new Produce(1500, 2000));
@@ -150,7 +150,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case UBORKA:
                 plants = new Vegetables("Uborka", Needs.MAGAS, Needs.MAGAS, Needs.MAGAS, new String[]{"rövid tenyészidejű, ősszel értékesíthető zöldségek"}, 100,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.HOMOKTALAJ},
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ, Soil.HOMOKTALAJ},
                         new Interval(LocalDate.of(2018, Month.APRIL, 1), LocalDate.of(2018, Month.APRIL, 5)),
                         new String[]{"öntözés", "gyomtalanítás", "fejtrágyázás", "talaj porhanyítás"},
                         new Interval(LocalDate.of(2018, Month.JUNE, 10), LocalDate.of(2018, Month.JUNE, 20)),
@@ -171,7 +171,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case SÁRGARÉPA:
                 plants = new Vegetables("Sárgarépa", Needs.ALACSONY, Needs.KÖZEPES, Needs.ALACSONY, new String[]{"közömbös"}, 20,
-                        new Soils[]{Soils.LAZATALAJ},
+                        new Soil[]{Soil.LAZATALAJ},
                         new Interval(LocalDate.of(2018, Month.FEBRUARY, 25), LocalDate.of(2018, Month.MARCH, 15)),
                         new String[]{"gyomtalanítás kapával"},
                         new Interval(LocalDate.of(2018, Month.MAY, 30), LocalDate.of(2018, Month.OCTOBER, 5)),
@@ -192,7 +192,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case RETEK:
                 plants = new Vegetables("Retek", Needs.ALACSONY, Needs.MAGAS, Needs.KÖZEPES, new String[]{"közömbös"}, 35,
-                        new Soils[]{Soils.LAZATALAJ, Soils.KÖZÉPKÖTÖTTTALAJ},
+                        new Soil[]{Soil.LAZATALAJ, Soil.KÖZÉPKÖTÖTTTALAJ},
                         new Interval(LocalDate.of(2018, Month.MARCH, 15), LocalDate.of(2018, Month.MARCH, 30)),
                         new String[]{"öntözés", "egy sarabolás"},
                         new Interval(LocalDate.of(2018, Month.APRIL, 15), LocalDate.of(2018, Month.APRIL, 30)),
@@ -213,7 +213,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case PAPRIKA:
                 plants = new Vegetables("Paprika", Needs.MAGAS, Needs.MAGAS, Needs.MAGAS, new String[]{"ne termesszük: paradicsom", "burgonya", "önmaga után"}, 30,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM},
                         new Interval(LocalDate.of(2018, Month.MAY, 15), LocalDate.of(2018, Month.MAY, 16)),
                         new String[]{"trágyázás", "öntözés"},
                         new Interval(LocalDate.of(2018, Month.JUNE, 20), LocalDate.of(2018, Month.AUGUST, 1)),
@@ -234,7 +234,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case PARADICSOM:
                 plants = new Vegetables("Paradicsom", Needs.KÖZEPES, Needs.MAGAS, Needs.MAGAS, new String[]{"dinnye", "uborka", "bab", "borsó", "káposztafélék"}, 65,
-                        new Soils[]{Soils.BARNAERDŐTALAJ, Soils.BARNAERDŐTALAJ},
+                        new Soil[]{Soil.BARNAERDŐTALAJ, Soil.BARNAERDŐTALAJ},
                         new Interval(LocalDate.of(2018, Month.APRIL, 20), LocalDate.of(2018, Month.APRIL, 25)),
                         new String[]{"gyomtalanítás", "öntözés", "trágyázás"},
                         new Interval(LocalDate.of(2018, Month.JULY, 15), LocalDate.of(2018, Month.AUGUST, 5)),
@@ -255,7 +255,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case VÖRÖSHAGYMA:
                 plants = new Vegetables("Vöröshagyma", Needs.KÖZEPES, Needs.ALACSONY, Needs.KÖZEPES, new String[]{"trágyázott zöldségek"}, 25,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.HOMOKTALAJ},
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ, Soil.HOMOKTALAJ},
                         new Interval(LocalDate.of(2018, Month.MARCH, 10), LocalDate.of(2018, Month.MARCH, 20)),
                         new String[]{"gyomtalanítás", "öntözés", "kapálás", "talajtömörítés"},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 5), LocalDate.of(2018, Month.OCTOBER, 15)),
@@ -276,7 +276,7 @@ public class VegetablesInformationController implements Initializable {
                 break;
             case BORSÓ:
                 plants = new Vegetables("Borsó", Needs.ALACSONY, Needs.MAGAS, Needs.KÖZEPES, new String[]{"paprika", "uborka", "káposztafélék"}, 12,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.HOMOKTALAJ, Soils.BARNAERDŐTALAJ, Soils.CSERNOZJOM, Soils.LAZATALAJ},
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ, Soil.HOMOKTALAJ, Soil.BARNAERDŐTALAJ, Soil.CSERNOZJOM, Soil.LAZATALAJ},
                         new Interval(LocalDate.of(2018, Month.FEBRUARY, 25), LocalDate.of(2018, Month.MARCH, 20)),
                         new String[]{"gyomtalanítás", "öntözés", "őszi mélyszántás", "tavaszi talajsimítás"},
                         new Interval(LocalDate.of(2018, Month.MAY, 15), LocalDate.of(2018, Month.JUNE, 30)),

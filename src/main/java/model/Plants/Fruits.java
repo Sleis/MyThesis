@@ -33,7 +33,7 @@ public class Fruits extends Plants {
     }
 
 
-    public Fruits(String name, int lifetime, Soils[] soil, Interval planting, String[] care, Interval picking, Produce produce) {
+    public Fruits(String name, int lifetime, Soil[] soil, Interval planting, String[] care, Interval picking, Produce produce) {
         super(name, soil, planting, care, picking);
         this.lifetime = lifetime;
         this.produce = produce;

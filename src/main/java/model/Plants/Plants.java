@@ -12,12 +12,12 @@ package model.Plants;
 public class Plants {
 
     private String name;
-    private Soils[] soil;
+    private Soil[] soil;
     private Interval planting;
     private String[] care;
     private Interval picking;
 
-    public Soils[] getSoil() {
+    public Soil[] getSoil() {
         return soil;
     }
 
@@ -33,7 +33,7 @@ public class Plants {
         return picking;
     }
 
-    public void setSoil(Soils[] soil) {
+    public void setSoil(Soil[] soil) {
         this.soil = soil;
     }
 
@@ -59,7 +59,7 @@ public class Plants {
 
     
 
-    public Plants(String name,Soils[] soil, Interval planting, String[] care, Interval picking) {
+    public Plants(String name,Soil[] soil, Interval planting, String[] care, Interval picking) {
         super();
         this.name = name;
         this.soil = soil;

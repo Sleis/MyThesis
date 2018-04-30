@@ -24,7 +24,7 @@ import javafx.scene.control.Label;
 import javafx.stage.Stage;
 import model.Plants.IndustrialCrops;
 import model.Plants.Interval;
-import model.Plants.Soils;
+import model.Plants.Soil;
 
 /**
  * FXML Controller class
@@ -84,7 +84,7 @@ public class ArableCropsInformationController implements Initializable {
         switch (EditorController.typeOfPlant) {
             case BÚZA:
                 plants = new IndustrialCrops("búza" ,new String[]{"minden augusztus közepéig betakarított növény"}, 12, 4,
-                        new Soils[]{Soils.CSERNOZJOM, Soils.BARNAERDŐTALAJ, Soils.RÉTITALAJ}, new Interval(LocalDate.of(2018, Month.OCTOBER, 15),
+                        new Soil[]{Soil.CSERNOZJOM, Soil.BARNAERDŐTALAJ, Soil.RÉTITALAJ}, new Interval(LocalDate.of(2018, Month.OCTOBER, 15),
                                 LocalDate.of(2018, Month.OCTOBER, 25)), new String[]{"felfagyáskor hengerezés", "vegyszeres gyomírtás"},
                         new Interval(LocalDate.of(2018, Month.JULY, 1), LocalDate.of(2018, Month.JULY, 31)));
                 arableCropsName.setText("Őszi búza");
@@ -100,7 +100,7 @@ public class ArableCropsInformationController implements Initializable {
                 break;
             case KUKORICA:
                 plants = new IndustrialCrops("kukorica", new String[]{"közömbös"}, 70, 5,
-                        new Soils[]{Soils.CSERNOZJOM, Soils.BARNAERDŐTALAJ, Soils.RÉTITALAJ, Soils.ÖNTÉSÉSLEJTŐHORDALÉKTALAJ}, new Interval(LocalDate.of(2018, Month.APRIL, 15),
+                        new Soil[]{Soil.CSERNOZJOM, Soil.BARNAERDŐTALAJ, Soil.RÉTITALAJ, Soil.ÖNTÉSÉSLEJTŐHORDALÉKTALAJ}, new Interval(LocalDate.of(2018, Month.APRIL, 15),
                                 LocalDate.of(2018, Month.MAY, 15)), new String[]{"vegyszeres gyomírtás"},
                         new Interval(LocalDate.of(2018, Month.AUGUST, 31), LocalDate.of(2018, Month.OCTOBER, 31)));
                 arableCropsName.setText("Kukorica");
@@ -116,7 +116,7 @@ public class ArableCropsInformationController implements Initializable {
                 break;
             case BURGONYA:
                 plants = new IndustrialCrops("burgonya", new String[]{"kalászosok", "fehérmustár", "olajretek"}, 70, 2,
-                        new Soils[]{Soils.LAZATALAJ, Soils.KÖZÉPKÖTÖTTTALAJ}, new Interval(LocalDate.of(2018, Month.APRIL, 5),
+                        new Soil[]{Soil.LAZATALAJ, Soil.KÖZÉPKÖTÖTTTALAJ}, new Interval(LocalDate.of(2018, Month.APRIL, 5),
                                 LocalDate.of(2018, Month.APRIL, 25)), new String[]{"vegyszeres gyomírtás"},
                         new Interval(LocalDate.of(2018, Month.MAY, 15), LocalDate.of(2018, Month.JUNE, 30)));
                 arableCropsName.setText("Burgonya");
@@ -132,7 +132,7 @@ public class ArableCropsInformationController implements Initializable {
                 break;
             case CUKORRÉPA:
                 plants = new IndustrialCrops("cukorrépa", new String[]{"kalászosok", "rostlen", "silókukorica"}, 45, 2,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ}, new Interval(LocalDate.of(2018, Month.MARCH, 15),
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ}, new Interval(LocalDate.of(2018, Month.MARCH, 15),
                                 LocalDate.of(2018, Month.APRIL, 10)), new String[]{"vegyszeres gyomírtás"},
                         new Interval(LocalDate.of(2018, Month.SEPTEMBER, 1), LocalDate.of(2018, Month.SEPTEMBER, 10)));
                 arableCropsName.setText("Cukorrépa");
@@ -148,7 +148,7 @@ public class ArableCropsInformationController implements Initializable {
                 break;
             case NAPRAFORGÓ:
                 plants = new IndustrialCrops("napraforgó", new String[]{"őszi kalászosok", "tavaszi kalászosok"}, 70, 5,
-                        new Soils[]{Soils.KÖZÉPKÖTÖTTTALAJ, Soils.LAZATALAJ}, new Interval(LocalDate.of(2018, Month.APRIL, 10),
+                        new Soil[]{Soil.KÖZÉPKÖTÖTTTALAJ, Soil.LAZATALAJ}, new Interval(LocalDate.of(2018, Month.APRIL, 10),
                                 LocalDate.of(2018, Month.APRIL, 25)), new String[]{"vegyszeres gyomírtás"}, null);
                 arableCropsName.setText("Napraforgó");
                 arableCropsForecrops.setText(Arrays.toString(plants.getForecrope()).substring(1, Arrays.toString(plants.getForecrope()).length() - 1));
