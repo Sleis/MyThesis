@@ -757,14 +757,12 @@ public class EditorController implements Initializable {
             IDs = 0;
             while (ids.next()) {
                 if (Integer.parseInt(ids.getString("ID")) > IDs) {
-                    System.out.println("while");
                     IDs = Integer.parseInt(ids.getString("ID"));
                 }
             }
         } catch (SQLException ex) {
             Logger.getLogger(EditorController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(IDs);
 
         board.setWidth(maps.getWidth() * maps.getWidthRate());
         board.setHeight(maps.getHeigth() * maps.getHeigthRate());

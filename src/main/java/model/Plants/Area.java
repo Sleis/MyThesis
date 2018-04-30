@@ -10,28 +10,28 @@ package model.Plants;
  * @author ivany
  */
 public class Area {
-    private int crownWidth;
-    private int crownHigth;
+    private int width;
+    private int heigth;
 
-    public int getCrownWidth() {
-        return crownWidth;
+    public int getWidth() {
+        return width;
     }
 
-    public int getCrownHigth() {
-        return crownHigth;
+    public int getHeigth() {
+        return heigth;
     }
 
-    public void setCrownWidth(int crownWidth) {
-        this.crownWidth = crownWidth;
+    public void setWidth(int width) {
+        this.width = width;
     }
 
-    public void setCrownHigth(int crownHigth) {
-        this.crownHigth = crownHigth;
+    public void setHeigth(int heigth) {
+        this.heigth = heigth;
     }
 
-    public Area(int crownWidth, int crownHigth) {
-        this.crownWidth = crownWidth;
-        this.crownHigth = crownHigth;
+    public Area(int width, int heigth) {
+        this.width = width;
+        this.heigth = heigth;
     }
     
     

@@ -15,7 +15,7 @@ public class MainApp extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/fxml/Home.fxml"));
         Scene scene = new Scene(root);
         scene.getStylesheets().add("/styles/Styles.css");
-        stage.setTitle("JavaFX and Maven");
+        stage.setTitle("Szakdolgozat");
         stage.resizableProperty().setValue(Boolean.FALSE);
         stage.setHeight(900);
         stage.setWidth(1600);

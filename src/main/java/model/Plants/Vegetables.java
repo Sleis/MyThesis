@@ -66,8 +66,8 @@ public class Vegetables extends Plants {
         this.minRowSpacing = minRowSpacing;
     }
 
-    public Vegetables(Needs heatNeed, Needs waterNeed, Needs lightNeed, String[] forecrops, int minRowSpacing, Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking, Produce produce) {
-        super(soil, planting, care, picking);
+    public Vegetables(String name, Needs heatNeed, Needs waterNeed, Needs lightNeed, String[] forecrops, int minRowSpacing, Soils[] soil, Interval planting, String[] care, Interval picking, Produce produce) {
+        super(name, soil, planting, care, picking);
         this.heatNeed = heatNeed;
         this.waterNeed = waterNeed;
         this.lightNeed = lightNeed;

@@ -30,8 +30,8 @@ public class FruitsTree extends Fruits {
         this.crownArea = crownArea;
     }
 
-    public FruitsTree(Crowns crown, Area crownArea, int lifetime, Soils[] soil, PlantingAndPicking planting, String[] care, PlantingAndPicking picking, Produce produce) {
-        super(lifetime, soil, planting, care, picking, produce);
+    public FruitsTree(String name, Crowns crown, Area crownArea, int lifetime, Soils[] soil, Interval planting, String[] care, Interval picking, Produce produce) {
+        super(name, lifetime, soil, planting, care, picking, produce);
         this.crown = crown;
         this.crownArea = crownArea;
     }

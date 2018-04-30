@@ -11,7 +11,7 @@ import java.time.LocalDate;
  *
  * @author ivany
  */
-public class PlantingAndPicking {
+public class Interval {
     private LocalDate minDate;
     private LocalDate maxDate;
 
@@ -31,7 +31,7 @@ public class PlantingAndPicking {
         this.maxDate = maxDate;
     }
 
-    public PlantingAndPicking(LocalDate minDate, LocalDate maxDate) {
+    public Interval(LocalDate minDate, LocalDate maxDate) {
         this.minDate = minDate;
         this.maxDate = maxDate;
     }

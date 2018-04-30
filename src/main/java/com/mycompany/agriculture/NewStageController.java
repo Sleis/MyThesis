@@ -42,6 +42,8 @@ public class NewStageController implements Initializable {
                 labelErrorMessage.setText("Írja be mindkét értéket!");
             } else if (Integer.parseInt(fieldWidth.getText()) > 180 || Integer.parseInt(fieldHeigth.getText()) > 180) {
                 labelErrorMessage.setText("Maximum érték: 180!");
+            }else if (Integer.parseInt(fieldWidth.getText()) < 1 || Integer.parseInt(fieldHeigth.getText()) < 1) {
+                labelErrorMessage.setText("Minimum érték: 1!");
             } else {
 
                 ((Node) (event.getSource())).getScene().getWindow().hide();
