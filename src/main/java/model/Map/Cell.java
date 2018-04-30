@@ -13,20 +13,20 @@ public class Cell {
 
     private int ID;
     private CellType celltype;
-    private int status;
+    private boolean status;
 
-    public Cell(CellType ct, int stat, int id) {
+    public Cell(CellType ct, boolean stat, int id) {
         celltype = ct;
         status = stat;
         ID = id;
     }
 
-    public void setCell(CellType ct, int stat) {
+    public void setCell(CellType ct, boolean stat) {
         this.celltype = ct;
         this.status = stat;
     }
 
-    public void setCell(CellType ct, int stat, int id) {
+    public void setCell(CellType ct, boolean stat, int id) {
         this.celltype = ct;
         this.status = stat;
         this.ID = id;
@@ -40,11 +40,11 @@ public class Cell {
         return celltype;
     }
 
-    public void setStatus(int status) {
+    public void setStatus(boolean status) {
         this.status = status;
     }
 
-    public int getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
@@ -58,12 +58,12 @@ public class Cell {
 
     public void setDefault() {
         this.celltype = CellType.DIRT;
-        this.status = 0;
+        this.status = false;
         this.ID = 0;
     }
 
     public void setDefaultIfStatusZero() {
-        if (this.status == 0) {
+        if (this.status == false) {
             this.celltype = CellType.DIRT;
             this.ID = 0;
         }

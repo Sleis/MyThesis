@@ -93,87 +93,87 @@ public class TheMap {
         }
     }
 
-    public void ifBothEven(int x, int y, int status, CellType celltype) {
+    public void ifBothEven(int x, int y, boolean status, CellType celltype) {
         for (int k = -1 * this.getArea()[0] / 2; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status);
                 }
             }
         }
     }
 
-    public void ifXisEvenAndYisAdd(int x, int y, int status, CellType celltype) {
+    public void ifXisEvenAndYisAdd(int x, int y, boolean status, CellType celltype) {
         for (int k = -1 * this.getArea()[0] / 2; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2 + 1; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status);
                 }
             }
         }
     }
 
-    public void ifXisAddAndYisEven(int x, int y, int status, CellType celltype) {
+    public void ifXisAddAndYisEven(int x, int y, boolean status, CellType celltype) {
         for (int k = -1 * this.getArea()[0] / 2 + 1; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status);
                 }
             }
         }
     }
 
-    public void ifBothAdd(int x, int y, int status, CellType celltype) {
+    public void ifBothAdd(int x, int y, boolean status, CellType celltype) {
         for (int k = -1 * this.getArea()[0] / 2 + 1; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2 + 1; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status);
                 }
             }
         }
     }
 
-    public void ifBothEven(int x, int y, int status, CellType celltype, int id) {
+    public void ifBothEven(int x, int y, boolean status, CellType celltype, int id) {
         for (int k = -1 * this.getArea()[0] / 2; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status, id);
                 }
             }
         }
     }
 
-    public void ifXisEvenAndYisAdd(int x, int y, int status, CellType celltype, int id) {
+    public void ifXisEvenAndYisAdd(int x, int y, boolean status, CellType celltype, int id) {
         for (int k = -1 * this.getArea()[0] / 2; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2 + 1; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status, id);
                 }
             }
         }
     }
 
-    public void ifXisAddAndYisEven(int x, int y, int status, CellType celltype, int id) {
+    public void ifXisAddAndYisEven(int x, int y, boolean status, CellType celltype, int id) {
         for (int k = -1 * this.getArea()[0] / 2 + 1; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status, id);
                 }
             }
         }
     }
 
-    public void ifBothAdd(int x, int y, int status, CellType celltype, int id) {
+    public void ifBothAdd(int x, int y, boolean status, CellType celltype, int id) {
         for (int k = -1 * this.getArea()[0] / 2 + 1; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2 + 1; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == false)) {
                     this.getCell()[x + k][y + j].setCell(celltype, status, id);
                 }
             }
         }
     }
 
-    public void coloring(int x, int y, int status, CellType celltype) {
+    public void coloring(int x, int y, boolean status, CellType celltype) {
         switch (evenOrNotTheAreasValues()) {
             case 0:
                 ifBothEven(x, y, status, celltype);
@@ -190,7 +190,7 @@ public class TheMap {
         }
     }
 
-    public void coloring(int x, int y, int status, CellType celltype, int id) {
+    public void coloring(int x, int y, boolean status, CellType celltype, int id) {
         switch (evenOrNotTheAreasValues()) {
             case 0:
                 ifBothEven(x, y, status, celltype, id);
@@ -229,7 +229,7 @@ public class TheMap {
     public boolean doOverlapOneAnotherifBothEven(int x, int y) {
         for (int k = -1 * this.getArea()[0] / 2; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() != 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == true)) {
                     return true;
                 }
             }
@@ -240,7 +240,7 @@ public class TheMap {
     public boolean doOverlapOneAnotherifXisEvenAndYisAdd(int x, int y) {
         for (int k = -1 * this.getArea()[0] / 2; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2 + 1; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() != 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == true)) {
                     return true;
                 }
             }
@@ -251,7 +251,7 @@ public class TheMap {
     public boolean doOverlapOneAnotherifBothAdd(int x, int y) {
         for (int k = -1 * this.getArea()[0] / 2 + 1; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2 + 1; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() != 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == true)) {
                     return true;
                 }
             }
@@ -262,7 +262,7 @@ public class TheMap {
     public boolean doOverlapOneAnotherifXisAddAndYisEven(int x, int y) {
         for (int k = -1 * this.getArea()[0] / 2 + 1; k <= (this.getArea()[0] / 2); k++) {
             for (int j = -1 * this.getArea()[1] / 2; j <= (this.getArea()[1] / 2); j++) {
-                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() != 0)) {
+                if (((x + k) >= 0) && ((x + k) < this.getWidth()) && ((y + j) >= 0) && ((y + j) < this.getHeigth()) && (this.getCell()[x + k][y + j].getStatus() == true)) {
                     return true;
                 }
             }

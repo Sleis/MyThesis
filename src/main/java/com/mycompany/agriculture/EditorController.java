@@ -104,7 +104,7 @@ public class EditorController implements Initializable {
         mapDrb.deleteMap();
         for (int i = 0; i < maps.getWidth(); i++) {
             for (int j = 0; j < maps.getHeigth(); j++) {
-                if (maps.getCell()[i][j].getStatus() == 1) {
+                if (maps.getCell()[i][j].getStatus() == true) {
                     mapDrb.addCell(i, j, maps.getCell()[i][j].getID(), maps.getCell()[i][j].getCelltype().toString());
                 }
             }
@@ -390,82 +390,82 @@ public class EditorController implements Initializable {
                 } else {
                     switch (ct) {
                         case BÚZA:
-                            maps.coloring(x, y, 1, CellType.BÚZA, IDs);
+                            maps.coloring(x, y, true, CellType.BÚZA, IDs);
                             break;
                         case KUKORICA:
-                            maps.coloring(x, y, 1, CellType.KUKORICA, IDs);
+                            maps.coloring(x, y, true, CellType.KUKORICA, IDs);
                             break;
                         case BURGONYA:
-                            maps.coloring(x, y, 1, CellType.BURGONYA, IDs);
+                            maps.coloring(x, y, true, CellType.BURGONYA, IDs);
                             break;
                         case CUKORRÉPA:
-                            maps.coloring(x, y, 1, CellType.CUKORRÉPA, IDs);
+                            maps.coloring(x, y, true, CellType.CUKORRÉPA, IDs);
                             break;
                         case NAPRAFORGÓ:
-                            maps.coloring(x, y, 1, CellType.NAPRAFORGÓ, IDs);
+                            maps.coloring(x, y, true, CellType.NAPRAFORGÓ, IDs);
                             break;
                         case FEJESKÁPOSZTA:
-                            maps.coloring(x, y, 1, CellType.FEJESKÁPOSZTA, IDs);
+                            maps.coloring(x, y, true, CellType.FEJESKÁPOSZTA, IDs);
                             break;
                         case PETREZSELYEM:
-                            maps.coloring(x, y, 1, CellType.PETREZSELYEM, IDs);
+                            maps.coloring(x, y, true, CellType.PETREZSELYEM, IDs);
                             break;
                         case KARALÁBÉ:
-                            maps.coloring(x, y, 1, CellType.KARALÁBÉ, IDs);
+                            maps.coloring(x, y, true, CellType.KARALÁBÉ, IDs);
                             break;
                         case UBORKA:
-                            maps.coloring(x, y, 1, CellType.UBORKA, IDs);
+                            maps.coloring(x, y, true, CellType.UBORKA, IDs);
                             break;
                         case SÁRGARÉPA:
-                            maps.coloring(x, y, 1, CellType.SÁRGARÉPA, IDs);
+                            maps.coloring(x, y, true, CellType.SÁRGARÉPA, IDs);
                             break;
                         case RETEK:
-                            maps.coloring(x, y, 1, CellType.RETEK, IDs);
+                            maps.coloring(x, y, true, CellType.RETEK, IDs);
                             break;
                         case PAPRIKA:
-                            maps.coloring(x, y, 1, CellType.PAPRIKA, IDs);
+                            maps.coloring(x, y, true, CellType.PAPRIKA, IDs);
                             break;
                         case PARADICSOM:
-                            maps.coloring(x, y, 1, CellType.PARADICSOM, IDs);
+                            maps.coloring(x, y, true, CellType.PARADICSOM, IDs);
                             break;
                         case VÖRÖSHAGYMA:
-                            maps.coloring(x, y, 1, CellType.VÖRÖSHAGYMA, IDs);
+                            maps.coloring(x, y, true, CellType.VÖRÖSHAGYMA, IDs);
                             break;
                         case BORSÓ:
-                            maps.coloring(x, y, 1, CellType.BORSÓ, IDs);
+                            maps.coloring(x, y, true, CellType.BORSÓ, IDs);
                             break;
                         case ALMA:
-                            maps.coloring(x, y, 1, CellType.ALMA, IDs);
+                            maps.coloring(x, y, true, CellType.ALMA, IDs);
                             break;
                         case KÖRTE:
-                            maps.coloring(x, y, 1, CellType.KÖRTE, IDs);
+                            maps.coloring(x, y, true, CellType.KÖRTE, IDs);
                             break;
                         case ŐSZIBARACK:
-                            maps.coloring(x, y, 1, CellType.ŐSZIBARACK, IDs);
+                            maps.coloring(x, y, true, CellType.ŐSZIBARACK, IDs);
                             break;
                         case SZILVA:
-                            maps.coloring(x, y, 1, CellType.SZILVA, IDs);
+                            maps.coloring(x, y, true, CellType.SZILVA, IDs);
                             break;
                         case MEGGY:
-                            maps.coloring(x, y, 1, CellType.MEGGY, IDs);
+                            maps.coloring(x, y, true, CellType.MEGGY, IDs);
                             break;
                         case CSERESZNYE:
-                            maps.coloring(x, y, 1, CellType.CSERESZNYE, IDs);
+                            maps.coloring(x, y, true, CellType.CSERESZNYE, IDs);
                             break;
                         case DIÓ:
-                            maps.coloring(x, y, 1, CellType.DIÓ, IDs);
+                            maps.coloring(x, y, true, CellType.DIÓ, IDs);
                             break;
                         case MÁLNA:
-                            maps.coloring(x, y, 1, CellType.MÁLNA, IDs);
+                            maps.coloring(x, y, true, CellType.MÁLNA, IDs);
                             break;
                         case EPER:
-                            maps.coloring(x, y, 1, CellType.EPER, IDs);
+                            maps.coloring(x, y, true, CellType.EPER, IDs);
                             break;
                         case SZEDER:
-                            maps.coloring(x, y, 1, CellType.SZEDER, IDs);
+                            maps.coloring(x, y, true, CellType.SZEDER, IDs);
                             break;
                         default:
-                            maps.coloring(x, y, 0, CellType.DIRT, IDs);
+                            maps.coloring(x, y, false, CellType.DIRT, IDs);
                     }
                     IDs++;
                     errorMessage.setText("");
@@ -609,9 +609,9 @@ public class EditorController implements Initializable {
             int x = (int) e.getX() / maps.getWidthRate();
             int y = (int) e.getY() / maps.getHeigthRate();
             if (!maps.doTheAreaGoOut(x, y) && !maps.doOverlapOneAnother(x, y)) {
-                maps.coloring(x, y, 0, CellType.MOVE);
+                maps.coloring(x, y, false, CellType.MOVE);
             } else {
-                maps.coloring(x, y, 0, CellType.ERROR);
+                maps.coloring(x, y, false, CellType.ERROR);
             }
             refreshMap();
         }
@@ -745,7 +745,7 @@ public class EditorController implements Initializable {
         cells = new Cell[maps.getWidth()][maps.getHeigth()];
         for (int i = 0; i < maps.getWidth(); i++) {
             for (int j = 0; j < maps.getHeigth(); j++) {
-                cells[i][j] = new Cell(CellType.DIRT, 0, 0);
+                cells[i][j] = new Cell(CellType.DIRT, false, 0);
             }
         }
         maps.setHeightRate(5);
@@ -771,82 +771,82 @@ public class EditorController implements Initializable {
             while (rs.next()) {
                 switch (rs.getString("cellType")) {
                     case "BÚZA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.BÚZA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.BÚZA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "KUKORICA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.KUKORICA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.KUKORICA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "BURGONYA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.BURGONYA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.BURGONYA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "CUKORRÉPA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.CUKORRÉPA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.CUKORRÉPA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "NAPRAFORGÓ":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.NAPRAFORGÓ, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.NAPRAFORGÓ, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "FEJESKÁPOSZTA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.FEJESKÁPOSZTA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.FEJESKÁPOSZTA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "PETREZSELYEM":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.PETREZSELYEM, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.PETREZSELYEM, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "KARALÁBÉ":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.KARALÁBÉ, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.KARALÁBÉ, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "UBORKA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.UBORKA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.UBORKA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "SÁRGARÉPA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.SÁRGARÉPA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.SÁRGARÉPA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "RETEK":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.RETEK, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.RETEK, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "PAPRIKA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.PAPRIKA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.PAPRIKA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "PARADICSOM":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.PARADICSOM, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.PARADICSOM, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "VÖRÖSHAGYMA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.VÖRÖSHAGYMA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.VÖRÖSHAGYMA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "BORSÓ":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.BORSÓ, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.BORSÓ, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "ALMA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.ALMA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.ALMA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "KÖRTE":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.KÖRTE, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.KÖRTE, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "ŐSZIBARACK":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.ŐSZIBARACK, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.ŐSZIBARACK, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "SZILVA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.SZILVA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.SZILVA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "MEGGY":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.MEGGY, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.MEGGY, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "CSERESZNYE":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.CSERESZNYE, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.CSERESZNYE, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "DIÓ":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.DIÓ, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.DIÓ, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "MÁLNA":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.MÁLNA, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.MÁLNA, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "EPER":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.EPER, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.EPER, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     case "SZEDER":
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.SZEDER, 1, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.SZEDER, true, Integer.parseInt(rs.getString("cellsID")));
                         break;
                     default:
-                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.DIRT, 0, Integer.parseInt(rs.getString("cellsID")));
+                        cells[Integer.parseInt(rs.getString("x"))][Integer.parseInt(rs.getString("y"))].setCell(CellType.DIRT, false, Integer.parseInt(rs.getString("cellsID")));
                         break;
                 }
             }
